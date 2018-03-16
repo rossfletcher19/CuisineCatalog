@@ -18,11 +18,13 @@
         android:scaleType="centerCrop" />
 
     <TextView
+        android:id="@+id/mainHeadingTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Cuisine Catalog"
         android:textColor="@color/colorTextIcons"
-        android:textSize="40dp"
+        android:textSize="60sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -31,11 +33,13 @@
         app:layout_constraintVertical_bias="0.035" />
 
     <TextView
+        android:id="@+id/subHeadingTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="About The App"
         android:textColor="@color/colorTextIcons"
-        android:textSize="18dp"
+        android:textSize="35sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -43,16 +47,17 @@
         app:layout_constraintVertical_bias="0.193" />
 
     <TextView
-        android:layout_width="360dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:background="@drawable/about_back"
         android:text="Street art lomo cred you probably haven't heard of them VHS taxidermy palo santo selvage migas photo booth. Humblebrag occupy tumeric, authentic hashtag chillwave thundercats tilde etsy franzen. Slow-carb offal brunch tumblr chartreuse neutra."
-        android:textSize="15dp"
         android:textColor="@color/colorTextIcons"
+        android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.313" />
+        app:layout_constraintVertical_bias="0.372" />
 
 </android.support.constraint.ConstraintLayout>
