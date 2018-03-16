@@ -3,8 +3,6 @@ package com.epicodus.recipesandroid;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -32,21 +30,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Typeface headingFont = Typeface.createFromAsset(getAssets(), "fonts/Windsong.ttf");
         mMainHeadingTextView.setTypeface(headingFont);
 
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Lets See the Recipes!", Snackbar.LENGTH_LONG).setAction("Action", null).show();
-//                Intent intent = new Intent(MainActivity.this, RecipeListActivity.class);
-//                startActivity(intent);
-//            }
-//        });
 
         mSeeCatalogButton = (Button) findViewById(R.id.seeCatalogButton);
         mSeeCatalogButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, RecipeListActivity.class);
+                Intent intent = new Intent(MainActivity.this, CuisineListActivity.class);
                 startActivity(intent);
             }
         });
