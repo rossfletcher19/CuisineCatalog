@@ -43,6 +43,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //        });
 
         mSeeCatalogButton = (Button) findViewById(R.id.seeCatalogButton);
+        mSeeCatalogButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, RecipeListActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
 
