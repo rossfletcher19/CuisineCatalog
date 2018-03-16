@@ -23,41 +23,45 @@
         android:layout_height="wrap_content"
         android:text="Cuisine Catalog"
         android:textColor="@color/colorTextIcons"
-        android:textSize="60sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.035" />
-
-    <TextView
-        android:id="@+id/subHeadingTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="About The App"
-        android:textColor="@color/colorTextIcons"
-        android:textSize="35sp"
+        android:textSize="50sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.193" />
+        app:layout_constraintVertical_bias="0.123" />
 
     <TextView
+        android:id="@+id/mainAboutTextView"
         android:layout_width="300dp"
-        android:layout_height="wrap_content"
+        android:layout_height="144dp"
         android:background="@drawable/about_back"
         android:text="Street art lomo cred you probably haven't heard of them VHS taxidermy palo santo selvage migas photo booth. Humblebrag occupy tumeric, authentic hashtag chillwave thundercats tilde etsy franzen. Slow-carb offal brunch tumblr chartreuse neutra."
         android:textColor="@color/colorTextIcons"
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.372" />
+        app:layout_constraintVertical_bias="0.4" />
+
+    <Button
+        android:id="@+id/seeCatalogButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/mainAboutTextView"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorAccent"
+        android:text="See The Catalog!"
+        android:textColor="@color/colorTextIcons"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+
 
 </android.support.constraint.ConstraintLayout>

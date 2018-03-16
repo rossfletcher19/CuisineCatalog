@@ -1,5 +1,6 @@
 package com.epicodus.recipesandroid;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -13,11 +14,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private TextView mMainHeadingTextView;
-    private TextView mSubHeadingTextView;
+    private Button mSeeCatalogButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,19 +29,24 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setSupportActionBar(toolbar);
 
         mMainHeadingTextView = (TextView) findViewById(R.id.mainHeadingTextView);
-        mSubHeadingTextView = (TextView) findViewById(R.id.subHeadingTextView);
         Typeface headingFont = Typeface.createFromAsset(getAssets(), "fonts/Windsong.ttf");
         mMainHeadingTextView.setTypeface(headingFont);
-        mSubHeadingTextView.setTypeface(headingFont);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Snackbar.make(view, "Lets See the Recipes!", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+//                Intent intent = new Intent(MainActivity.this, RecipeListActivity.class);
+//                startActivity(intent);
+//            }
+//        });
+
+        mSeeCatalogButton = (Button) findViewById(R.id.seeCatalogButton);
+
+
+
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
