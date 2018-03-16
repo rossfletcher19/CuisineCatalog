@@ -35,4 +35,6 @@ public class CuisineListActivity extends AppCompatActivity {
 
 
 
+
+
 }
