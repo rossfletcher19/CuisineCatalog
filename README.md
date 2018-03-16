@@ -12,11 +12,14 @@ __
 
 | Behaviour | Input  | Output  |
 |---|---|---|
+| A user can view a homepage with an about/bio | User views main activity  | User sees main activity page with about/bio section  |
+| A user can view a list of recipes  |   |   |
+| A user can see input/reviews of a recipe  |   |   |
 |   |   |   |
-|   |   |   |
-|   |   |   |
-|   |   |   |
-|   |   |   |
+| A admin can add, edit and delete a recipe  |   |   |
+| A user  |   |   |
+| A user can  |   |   |
+| A user can  |   |   |
 |   |   |   |
 |   |   |   |
 
