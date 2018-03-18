@@ -20,7 +20,12 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".CuisineListActivity"></activity>
+        <activity android:name=".CuisineListActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.epicodus.recipesandroid.MainActivity">
+            </meta-data>
+        </activity>
 
     </application>
 
