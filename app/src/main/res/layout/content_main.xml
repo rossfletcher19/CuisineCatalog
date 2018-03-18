@@ -20,10 +20,10 @@
     <TextView
         android:id="@+id/mainHeadingTextView"
         android:layout_width="wrap_content"
-        android:layout_height="111dp"
+        android:layout_height="128dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="36dp"
         android:text="@string/app_name"
         android:textColor="@color/colorTextIcons"
         android:textSize="70sp"
@@ -41,7 +41,6 @@
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:background="@drawable/about_back"
         android:text="@string/about_text"
         android:textColor="@color/colorTextIcons"
@@ -52,7 +51,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mainHeadingTextView"
-        app:layout_constraintVertical_bias="0.008" />
+        app:layout_constraintVertical_bias="0.094" />
 
     <Button
         android:id="@+id/seeCatalogButton"
