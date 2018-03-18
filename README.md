@@ -1,36 +1,26 @@
 # _Cuisine Catalog_
 
-#### _An Archive of Recipes and Reviews of Food!! How good is food!?!, 03/16/2018_
+#### _An Archive of Recipes and Reviews of Food built in Android Studio. How good is food!?!, 03/16/2018_
 
 #### By _**Ross Fletcher**_
 
-## Description
-
-__
 
 ## Specs
 
 | Behaviour | Input  | Output  |
 |---|---|---|
-| A user can view a homepage with an about/bio | User views main activity  | User sees main activity page with about/bio section  |
-| A user can view a list of recipes  |   |   |
-| A user can see input/reviews of a recipe  |   |   |
-|   |   |   |
-| A admin can add, edit and delete a recipe  |   |   |
+| A user can view a homepage with about/bio and login/register features | User views main activity  | User sees main activity page with about/bio section and login/register features  |
+| A user can view a list of recipes  | User selects specific cuisine from cuisine list activity  | User sees list of recipes within that cuisine  |
+| A user can see input/reviews of a recipe  | User clicks on a recipe  | User sees recipe, along with comments and reviews on the recipe  |
+| A user can login or create an account with account info  | User visits home page  | User sees feature to register a user name and pw or login with previously created user name and pw |
+| A admin can login and add, edit or delete a recipe  |  Admin visits admin area and logs in | Admin sees list of all recipes and posts and has ability to edit or delete recipes/posts  |
 | A user  |   |   |
-| A user can  |   |   |
-| A user can  |   |   |
-|   |   |   |
-|   |   |   |
 
-## Configuration
-  * 
-  * 
+## Setup/Installation Requirements
 
-
-
-## Integration
-  * 
+* _Clone or fork project down_
+* _Use Android Studio to let project gradle build and then create a new virtual device with AVD manager_
+* _Run app on virtual device, let the emulator start up to display the app._
 
 ## UX/UI
   * Develop custom style
@@ -39,16 +29,6 @@ __
   * Refactor
   * Delete unused
   * Make README awesome
-
-## Setup/Installation Requirements
-
-* _This is a great place_
-* _to list setup instructions_
-* _in a simple_
-* _easy-to-understand_
-* _format_
-
-
 
 ## Known Bugs
 
@@ -62,7 +42,8 @@ _Contact Ross Fletcher @ rtbfletch at outlook dot com, with any questions or inp
 
 * _Android Studio_
 * _Java_
-* __
+* _Android Virtual Device Manager_
+* _Git and GitHub_
 
 ### License
 
