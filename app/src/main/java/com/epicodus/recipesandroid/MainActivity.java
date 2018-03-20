@@ -15,14 +15,22 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.TextView;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-    private TextView mMainHeadingTextView;
-    private Button mSeeCatalogButton;
+    @BindView(R.id.mainHeadingTextView) TextView mMainHeadingTextView;
+    @BindView(R.id.seeCatalogButton) Button mSeeCatalogButton;
+
+//    private TextView mMainHeadingTextView;
+//    private Button mSeeCatalogButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
