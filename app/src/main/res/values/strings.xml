@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Cuisine Catalog</string>
+    <string name="admin_email">rtbfletch@outlook.com</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="about_text">"Street art lomo cred you probably haven't heard of them VHS taxidermy palo santo selvage migas photo booth. Humblebrag occupy tumeric, authentic hashtag chillwave thundercats tilde etsy franzen. Slow-carb offal brunch tumblr chartreuse neutra."</string>
+    <string name="see_the_catalog_button">See the Catalog!</string>
+    <string name="current_cuisines">Current Cuisines</string>
+</resources>
