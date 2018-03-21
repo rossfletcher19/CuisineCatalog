@@ -4,19 +4,27 @@ package com.epicodus.recipesandroid;
 public class Recipe {
     private String name;
     private String description;
+    private String course;
     private String[] ingredients;
     private String directions;
     private String cuisine;
 
-    public Recipe (String name, String description, String[] ingredients, String directions, String cuisine) {
+    public Recipe (String name, String description, String course, String[] ingredients, String directions, String cuisine) {
         this.name = name;
         this.description = description;
+        this.course = course;
         this.ingredients = ingredients;
         this.directions = directions;
         this.cuisine = cuisine;
     }
 
+    public String getCourse() {
+        return course;
+    }
 
+    public void setCourse(String course) {
+        this.course = course;
+    }
 
     public String getName() {
         return name;
