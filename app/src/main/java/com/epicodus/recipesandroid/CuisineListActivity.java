@@ -1,6 +1,5 @@
 package com.epicodus.recipesandroid;
 
-
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -17,8 +16,6 @@ public class CuisineListActivity extends AppCompatActivity {
     private ListView mCuisineListView;
     private String[] cuisines = new String[] {"Fusion Recipes", "One-pot comfort foods", "East Coast-style meals", "West Coast-style meals"};
     private TextView mCuisineHeadingTextView;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

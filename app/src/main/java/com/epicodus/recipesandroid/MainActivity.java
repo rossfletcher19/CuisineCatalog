@@ -24,9 +24,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @BindView(R.id.seeCatalogButton) Button mSeeCatalogButton;
 
 
-//    private TextView mMainHeadingTextView;
-//    private Button mSeeCatalogButton;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,18 +31,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ButterKnife.bind(this);
 
 
-
-
-
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
 
         mMainHeadingTextView = (TextView) findViewById(R.id.mainHeadingTextView);
         Typeface headingFont = Typeface.createFromAsset(getAssets(), "fonts/Windsong.ttf");
         mMainHeadingTextView.setTypeface(headingFont);
-
 
         mSeeCatalogButton = (Button) findViewById(R.id.seeCatalogButton);
         mSeeCatalogButton.setOnClickListener(new View.OnClickListener() {
@@ -55,9 +46,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(intent);
             }
         });
-
-
-
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
