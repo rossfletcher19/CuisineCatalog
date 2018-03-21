@@ -36,7 +36,11 @@ public class CuisineListActivity extends AppCompatActivity {
         mCuisineListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                String cuisine = cuisines[i];
+                System.out.println(cuisine);
+
                 Intent intent = new Intent(CuisineListActivity.this, RecipesListActivity.class);
+                intent.putExtra("cuisine", cuisine);
                 startActivity(intent);
             }
         });
