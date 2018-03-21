@@ -36,10 +36,10 @@ public class RecipesListActivity extends AppCompatActivity{
 
         Recipe recipe4a = new Recipe("Slow cooker Korean tacos2", "A Mexican-Korean fusion item, Korean tacos are made with Korean ingredients like kimchee and bulgogi, all on a Mexican corn tortilla.", "main", new String[]{"2 pounds boneless pork loin, cut into 4 pieces", "1 cup hoisin sauce","3 cloves garlic, minced","3 green onions, thinly sliced, plus extra for garnish","3 tsp ground ginger","1: 16- ounce package of coleslaw or broccoli slaw mix","3 tbsp rice wine vinegar","2 tbsp brown sugar","Small tortillas or hot cooked white rice for serving, or brown rice"} , "Add the pieces of pork in the insert/bowl of your slow cooker. Add hoisin sauce, garlic, green onions, and ground ginger. Toss each piece of pork a few times to fully coat with the sauce and spices. Cover and cook on low for 8 to 9 hours. Prior to serving, in a bowl, toss coleslaw or broccoli slaw mix with rice wine vinegar and brown sugar. Remove pork from slow cooker and shred. Place pork back into the sauce and toss to coat. Serve in warmed tortillas with slaw on top or spoon pork onto a bed of rice. Garnish with sliced green onions, if desired. Store leftovers in an airtight container for up to 5 days.", "Fusion Recipes");
 
-        Recipe[] cuisine1 = {recipe1, recipe1a}; // East Coast-style meals
-        Recipe[] cuisine2 = {recipe2, recipe2a}; // West Coast-style meals
-        Recipe[] cuisine3 = {recipe3, recipe3a}; // One-pot comfort foods
-        Recipe[] cuisine4 = {recipe4, recipe4a}; // Fusion Recipes
+        String[] cuisine1 = {recipe1.getName(), recipe1a.getName()}; // East Coast-style meals
+        String[] cuisine2 = {recipe2.getName(), recipe2a.getName()}; // West Coast-style meals
+        String[] cuisine3 = {recipe3.getName(), recipe3a.getName()}; // One-pot comfort foods
+        String[] cuisine4 = {recipe4.getName(), recipe4a.getName()}; // Fusion Recipes
 
 
 
@@ -48,11 +48,24 @@ public class RecipesListActivity extends AppCompatActivity{
 
         Intent intent = getIntent();
         String cuisine = intent.getStringExtra("cuisine");
-        System.out.println(cuisine);
 
 
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, cuisine1);
-        mRecipeListview.setAdapter(adapter);
+        if (cuisine.contains("Fusion Recipes")) {
+            ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, cuisine4);
+            mRecipeListview.setAdapter(adapter);
+        } else if (cuisine.contains("One-pot comfort foods")) {
+            ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, cuisine3);
+            mRecipeListview.setAdapter(adapter);
+        } else if (cuisine.contains("West Coast-style meals")) {
+            ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, cuisine2);
+            mRecipeListview.setAdapter(adapter);
+        } else if (cuisine.contains("East Coast-style meals")) {
+            ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, cuisine1);
+            mRecipeListview.setAdapter(adapter);
+        }
+
+
+
 
 
 
