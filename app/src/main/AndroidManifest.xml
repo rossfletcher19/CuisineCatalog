@@ -24,7 +24,11 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.epicodus.recipesandroid.MainActivity"></meta-data>
         </activity>
-        <activity android:name=".RecipesListActivity"></activity>
+        <activity android:name=".RecipesListActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.epicodus.recipesandroid.CuisineListActivity"></meta-data>
+        </activity>
     </application>
 
 </manifest>
