@@ -8,6 +8,7 @@
         android:layout_width="130dp"
         android:layout_height="100dp"
         android:id="@+id/recipeImageView"
+        android:contentDescription="@string/recipeImg"
         android:src="@drawable/account_settings"
         android:scaleType="centerCrop"/>
 
@@ -19,22 +20,19 @@
         android:padding="10dp">
 
         <TextView
+            android:id="@+id/recipeNameTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/recipeNameTextView"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:textStyle="bold"
             android:text="@string/recipeName"
             android:textColor="@color/colorPrimary"/>
 
         <TextView
+            android:id="@+id/descriptionTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/recipeDesc"
-            android:id="@+id/descriptionTextView"
-            android:layout_below="@+id/recipeNameTextView"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
             android:textStyle="italic"/>
 
     </LinearLayout>

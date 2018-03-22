@@ -11,4 +11,5 @@
     <string name="current_cuisines">Current Cuisines</string>
     <string name="recipeName">Recipe Name:</string>
     <string name="recipeDesc">Description</string>
+    <string name="recipeImg">Image of finished recipe</string>
 </resources>
