@@ -25,33 +25,52 @@ public class RecipesListActivity extends AppCompatActivity{
         setContentView(R.layout.activity_recipes_list);
         Intent intent = getIntent();
         String cuisine = intent.getStringExtra("cuisine");
-        recipes = Recipe.createRecipeList(cuisine);
+
+        recipes = Recipe.createRecipeList();
+
+        ArrayList<Recipe> cuisineRecipes = new ArrayList<Recipe>();
+        for (Recipe recipe : recipes) {
+            if (recipe.getCuisine().equals(cuisine)) {
+                cuisineRecipes.addAll(Arrays.asList(recipe));
+
+            } else {
+                Log.d("test for looppppp", "test for loopppp");
 
 
-
-        if (cuisine.contains("Fusion Recipes")) {
-            RecyclerView rvRecipes = (RecyclerView)findViewById(R.id.rvRecipesList);
-            adapter = new RecipeAdapter(this, recipes);
-            rvRecipes.setLayoutManager(new LinearLayoutManager(this));
-            rvRecipes.setAdapter(adapter);
-        } else if (cuisine.contains("One-pot comfort foods")) {
-            RecyclerView rvRecipes = (RecyclerView)findViewById(R.id.rvRecipesList);
-            adapter = new RecipeAdapter(this, recipes);
-            rvRecipes.setLayoutManager(new LinearLayoutManager(this));
-            rvRecipes.setAdapter(adapter);
-        } else if (cuisine.contains("West Coast-style meals")) {
-            RecyclerView rvRecipes = (RecyclerView)findViewById(R.id.rvRecipesList);
-            adapter = new RecipeAdapter(this, recipes);
-            rvRecipes.setLayoutManager(new LinearLayoutManager(this));
-            rvRecipes.setAdapter(adapter);
-        } else if (cuisine.contains("East Coast-style meals")) {
-            RecyclerView rvRecipes = (RecyclerView)findViewById(R.id.rvRecipesList);
-            adapter = new RecipeAdapter(this, recipes);
-            rvRecipes.setLayoutManager(new LinearLayoutManager(this));
-            rvRecipes.setAdapter(adapter);
-        } else {
-            System.out.println("end of if....");
+            }
         }
+
+
+        RecyclerView rvRecipes = (RecyclerView)findViewById(R.id.rvRecipesList);
+        adapter = new RecipeAdapter(this, cuisineRecipes);
+        rvRecipes.setLayoutManager(new LinearLayoutManager(this));
+        rvRecipes.setAdapter(adapter);
+
+
+
+//        if (cuisine.contains("Fusion Recipes")) {
+//            RecyclerView rvRecipes = (RecyclerView)findViewById(R.id.rvRecipesList);
+//            adapter = new RecipeAdapter(this, recipes);
+//            rvRecipes.setLayoutManager(new LinearLayoutManager(this));
+//            rvRecipes.setAdapter(adapter);
+//        } else if (cuisine.contains("One-pot comfort foods")) {
+//            RecyclerView rvRecipes = (RecyclerView)findViewById(R.id.rvRecipesList);
+//            adapter = new RecipeAdapter(this, recipes);
+//            rvRecipes.setLayoutManager(new LinearLayoutManager(this));
+//            rvRecipes.setAdapter(adapter);
+//        } else if (cuisine.contains("West Coast-style meals")) {
+//            RecyclerView rvRecipes = (RecyclerView)findViewById(R.id.rvRecipesList);
+//            adapter = new RecipeAdapter(this, recipes);
+//            rvRecipes.setLayoutManager(new LinearLayoutManager(this));
+//            rvRecipes.setAdapter(adapter);
+//        } else if (cuisine.contains("East Coast-style meals")) {
+//            RecyclerView rvRecipes = (RecyclerView)findViewById(R.id.rvRecipesList);
+//            adapter = new RecipeAdapter(this, recipes);
+//            rvRecipes.setLayoutManager(new LinearLayoutManager(this));
+//            rvRecipes.setAdapter(adapter);
+//        } else {
+//            System.out.println("end of if....");
+//        }
 
 
     }

@@ -5,6 +5,7 @@ import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 
 public class Recipe {
     private String name;
@@ -14,7 +15,7 @@ public class Recipe {
     private String directions;
     private String cuisine;
 
-    public Recipe(String name, String description, String course, String[] ingredients, String directions, String cuisine) {
+    private Recipe(String name, String description, String course, String[] ingredients, String directions, String cuisine) {
         this.name = name;
         this.description = description;
         this.course = course;
@@ -72,8 +73,8 @@ public class Recipe {
     }
 
 
-    public static ArrayList<Recipe> createRecipeList(String cuisine) {
-        System.out.println(cuisine + "test cuisine");
+    public static ArrayList<Recipe> createRecipeList() {
+
 
         ArrayList<Recipe> recipes = new ArrayList<Recipe>();
 
@@ -97,14 +98,21 @@ public class Recipe {
 
         recipes.addAll(Arrays.asList(recipe1, recipe1a, recipe2, recipe2a, recipe3, recipe3a, recipe4, recipe4a));
 
-        for (Recipe recipe : recipes) {
-            if (recipe.cuisine == cuisine) {
-                Log.d("cuisine", "if st cuisine");
-                Log.d("test for loop", "test for loop");
-            } else {
-                Log.d("test for looppppp", "test for loopppp");
-            }
-        }
+//ArrayList<Recipe> cuisineRecipes = new ArrayList<Recipe>();
+
+
+//        for (Recipe recipe : recipes) {
+//            if (recipe.cuisine.equals(cuisine)) {
+//                cuisineRecipes.addAll(Arrays.asList(recipe));
+//
+//            } else {
+//                Log.d("test for looppppp", "test for loopppp");
+//                return cuisineRecipes;
+//
+//            }
+//        }
+
+
 
         return recipes;
     }
