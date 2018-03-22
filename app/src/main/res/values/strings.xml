@@ -10,6 +10,12 @@
     <string name="see_the_catalog_button">See the Catalog!</string>
     <string name="current_cuisines">Current Cuisines</string>
     <string name="recipeName">Recipe Name:</string>
-    <string name="recipeDesc">Description</string>
-    <string name="recipeImg">Image of finished recipe</string>
+    <string name="recipeDesc">Description:</string>
+    <string name="recipeCourse">Course:</string>
+    <string name="ingredients">Ingredients:</string>
+    <string name="directions">Directions:</string>
+    <string name="recipeImgDesc">Image of finished recipe</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
