@@ -20,6 +20,7 @@ public class EdamamService {
         urlBuilder.addQueryParameter("app_id", Constants.EDAMAM_ID);
         urlBuilder.addQueryParameter("app_key", Constants.EDAMAM_KEY);
         String url = urlBuilder.build().toString();
+        System.out.println(url);
 
 
         Request request= new Request.Builder()
