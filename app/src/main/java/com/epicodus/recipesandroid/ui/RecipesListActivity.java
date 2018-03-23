@@ -6,8 +6,9 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
+
+import com.epicodus.recipesandroid.adapters.RecipeAdapter;
+import com.epicodus.recipesandroid.models.Recipe;
 
 import java.util.ArrayList;
 import java.util.Arrays;

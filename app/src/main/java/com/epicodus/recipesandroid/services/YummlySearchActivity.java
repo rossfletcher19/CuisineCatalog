@@ -9,12 +9,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.epicodus.recipesandroid.models.Recipe;
+import com.epicodus.recipesandroid.ui.MainActivity;
+
 import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class EdamamSearchActivity extends AppCompatActivity {
+public class YummlySearchActivity extends AppCompatActivity {
     public static final String TAG = MainActivity.class.getSimpleName();
     @BindView(R.id.apiSearchPageButton) Button bApiSearchPageButton;
     @BindView(R.id.apiSearchEditText) EditText mApiSearchEditText;
@@ -24,7 +27,7 @@ public class EdamamSearchActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edamam_search);
+        setContentView(R.layout.activity_yummly_search);
         ButterKnife.bind(this);
 
 
