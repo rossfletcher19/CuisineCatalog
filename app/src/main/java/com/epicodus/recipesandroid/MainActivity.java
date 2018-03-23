@@ -3,7 +3,6 @@ package com.epicodus.recipesandroid;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -22,6 +21,7 @@ import butterknife.ButterKnife;
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     @BindView(R.id.mainHeadingTextView) TextView mMainHeadingTextView;
     @BindView(R.id.seeCatalogButton) Button mSeeCatalogButton;
+    @BindView(R.id.apiSearchPageButton) Button bApiSearchPageButton;
 
 
     @Override
@@ -43,6 +43,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, CuisineListActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        bApiSearchPageButton = (Button) findViewById(R.id.apiSearchPageButton);
+        bApiSearchPageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, EdamamSearchActivity.class);
                 startActivity(intent);
             }
         });

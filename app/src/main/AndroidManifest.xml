@@ -29,7 +29,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.epicodus.recipesandroid.CuisineListActivity" />
         </activity>
-        <activity android:name=".RecipeDetailActivity"></activity>
+        <activity android:name=".RecipeDetailActivity" />
+        <activity android:name=".EdamamSearchActivity"></activity>
     </application>
 
 </manifest>
