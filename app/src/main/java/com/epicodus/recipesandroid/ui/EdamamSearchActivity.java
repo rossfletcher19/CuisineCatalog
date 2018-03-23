@@ -1,10 +1,7 @@
 package com.epicodus.recipesandroid.ui;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -13,11 +10,10 @@ import android.widget.EditText;
 import com.epicodus.recipesandroid.R;
 import com.epicodus.recipesandroid.adapters.RecipeAdapter;
 import com.epicodus.recipesandroid.models.Recipe;
-import com.epicodus.recipesandroid.services.YummlyService;
+import com.epicodus.recipesandroid.services.EdamamService;
 
 import okhttp3.Call;
 import okhttp3.Callback;
-import com.epicodus.recipesandroid.ui.MainActivity;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -26,7 +22,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import okhttp3.Response;
 
-public class YummlySearchActivity extends AppCompatActivity {
+public class EdamamSearchActivity extends AppCompatActivity {
     public static final String TAG = MainActivity.class.getSimpleName();
     @BindView(R.id.apiSearchPageButton) Button bApiSearchPageButton;
     @BindView(R.id.apiSearchEditText) EditText mApiSearchEditText;
@@ -36,19 +32,18 @@ public class YummlySearchActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_yummly_search);
+        setContentView(R.layout.activity_edamam_search);
         ButterKnife.bind(this);
 
-
-        String yummlyQuery = mApiSearchEditText.getText().toString();
         bApiSearchPageButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
 
-                String yummlyQuery = mApiSearchEditText.getText().toString();
-                getRecipes(yummlyQuery);
-                Log.d(TAG, yummlyQuery);
+                String searchQuery = mApiSearchEditText.getText().toString();
+                getRecipes(searchQuery);
+                System.out.println(searchQuery);
+                Log.d(TAG, searchQuery);
 
             }
         });
@@ -59,10 +54,9 @@ public class YummlySearchActivity extends AppCompatActivity {
 
 
 
-
-        private void getRecipes(String yummlyQuery) {
-            final YummlyService yummlyService = new YummlyService();
-            yummlyService.findRecipes(yummlyQuery, new Callback() {
+        private void getRecipes(String searchQuery) {
+            final EdamamService edamamService = new EdamamService();
+            edamamService.findRecipes(searchQuery, new Callback() {
 
                 @Override
                 public void onFailure(Call call, IOException e) {

@@ -17,8 +17,8 @@ android {
         }
     }
     buildTypes.each {
-        it.buildConfigField 'String', 'YUMMLY_ID', YummlyId
-        it.buildConfigField 'String', 'YUMMLY_KEY', YummlyKey
+        it.buildConfigField 'String', 'EDAMAM_ID', EdamamId
+        it.buildConfigField 'String', 'EDAMAM_KEY', EdamamKey
     }
 }
 

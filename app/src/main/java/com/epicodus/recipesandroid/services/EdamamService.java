@@ -8,21 +8,22 @@ import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 
-public class YummlyService {
+public class EdamamService {
 
-    public static void findRecipes(String yummlyQuery, Callback callback) {
+    public static void findRecipes(String query, Callback callback) {
 
         OkHttpClient client = new OkHttpClient.Builder()
                 .build();
 
-        HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.YUMMLY_BASE_URL).newBuilder();
-        urlBuilder.addQueryParameter(Constants.YUMMLY_QUERY_PARAMETER, yummlyQuery);
+        HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.EDAMAM_BASE_URL).newBuilder();
+        urlBuilder.addQueryParameter(Constants.EDAMAM_QUERY_PARAMETER, query);
+        urlBuilder.addQueryParameter("app_id", Constants.EDAMAM_ID);
+        urlBuilder.addQueryParameter("app_key", Constants.EDAMAM_KEY);
         String url = urlBuilder.build().toString();
+
 
         Request request= new Request.Builder()
                 .url(url)
-                .header("X-Yummly-App-ID", Constants.YUMMLY_ID)
-                .header("X-Yummly-App-Key", Constants.YUMMLY_KEY)
                 .build();
 
         Call call = client.newCall(request);

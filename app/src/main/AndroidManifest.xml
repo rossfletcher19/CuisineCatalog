@@ -32,7 +32,7 @@
                 android:value="com.epicodus.recipesandroid.ui.CuisineListActivity" />
         </activity>
         <activity android:name=".ui.RecipeDetailActivity" />
-        <activity android:name=".ui.YummlySearchActivity">
+        <activity android:name=".ui.EdamamSearchActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.epicodus.recipesandroid.ui.MainActivity" />
