@@ -16,7 +16,6 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.epicodus.recipesandroid.R;
-import com.epicodus.recipesandroid.services.YummlySearchActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
