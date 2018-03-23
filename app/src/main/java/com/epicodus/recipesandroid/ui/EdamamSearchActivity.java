@@ -42,8 +42,6 @@ public class EdamamSearchActivity extends AppCompatActivity {
 
                 String searchQuery = mApiSearchEditText.getText().toString();
                 getRecipes(searchQuery);
-                System.out.println(searchQuery);
-                Log.d(TAG, searchQuery);
 
             }
         });
