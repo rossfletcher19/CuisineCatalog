@@ -1,5 +1,6 @@
 package com.epicodus.recipesandroid.ui;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -12,12 +13,18 @@ import android.widget.EditText;
 import com.epicodus.recipesandroid.R;
 import com.epicodus.recipesandroid.adapters.RecipeAdapter;
 import com.epicodus.recipesandroid.models.Recipe;
+import com.epicodus.recipesandroid.services.YummlyService;
+
+import okhttp3.Call;
+import okhttp3.Callback;
 import com.epicodus.recipesandroid.ui.MainActivity;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import okhttp3.Response;
 
 public class YummlySearchActivity extends AppCompatActivity {
     public static final String TAG = MainActivity.class.getSimpleName();
@@ -33,25 +40,55 @@ public class YummlySearchActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
 
-
+        String yummlyQuery = mApiSearchEditText.getText().toString();
         bApiSearchPageButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                String apiSearchTerms = mApiSearchEditText.getText().toString();
-                Log.d(TAG, apiSearchTerms);
+
+                String yummlyQuery = mApiSearchEditText.getText().toString();
+                getRecipes(yummlyQuery);
+                Log.d(TAG, yummlyQuery);
 
             }
         });
 
 
-        recipes = Recipe.createRecipeList();
-        RecyclerView rvApiRecipes = (RecyclerView)findViewById(R.id.rvApiRecipesList);
-        adapter = new RecipeAdapter(this, recipes);
-        rvApiRecipes.setLayoutManager(new LinearLayoutManager(this));
-        rvApiRecipes.setAdapter(adapter);
+
+    }
+
+
+
+
+        private void getRecipes(String yummlyQuery) {
+            final YummlyService yummlyService = new YummlyService();
+            yummlyService.findRecipes(yummlyQuery, new Callback() {
+
+                @Override
+                public void onFailure(Call call, IOException e) {
+                    e.printStackTrace();
+                }
+
+                @Override
+                public void onResponse(Call call, Response response) throws IOException {
+                    try {
+                        String jsonData = response.body().string();
+                        Log.v(TAG, jsonData);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+            });
+        }
+
+//        recipes = Recipe.createRecipeList();
+//        RecyclerView rvApiRecipes = (RecyclerView)findViewById(R.id.rvApiRecipesList);
+//        adapter = new RecipeAdapter(this, recipes);
+//        rvApiRecipes.setLayoutManager(new LinearLayoutManager(this));
+//        rvApiRecipes.setAdapter(adapter);
 
 
 
     }
-}
+
