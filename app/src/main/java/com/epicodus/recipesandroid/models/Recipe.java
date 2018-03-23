@@ -1,11 +1,8 @@
-package com.epicodus.recipesandroid;
+package com.epicodus.recipesandroid.models;
 
-
-import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 
 public class Recipe {
     private String name;

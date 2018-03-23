@@ -1,15 +1,16 @@
-package com.epicodus.recipesandroid;
+package com.epicodus.recipesandroid.ui;
 
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.epicodus.recipesandroid.R;
 
 
 public class CuisineListActivity extends AppCompatActivity {

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.epicodus.recipesandroid.YummlySearchActivity">
+    tools:context="com.epicodus.recipesandroid.services.YummlySearchActivity">
 
     <EditText
         android:id="@+id/apiSearchEditText"
@@ -22,10 +22,8 @@
         android:id="@+id/apiSearchPageButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
         android:layout_marginTop="8dp"
-        android:text="@string/search_edamam"
-        app:layout_constraintBottom_toTopOf="@+id/rvApiRecipesList"
+        android:text="@string/search_yummly"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,10 +32,10 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rvApiRecipesList"
         android:layout_width="0dp"
-        android:layout_height="402dp"
-        android:layout_marginBottom="8dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/apiSearchPageButton" />
 
 </android.support.constraint.ConstraintLayout>

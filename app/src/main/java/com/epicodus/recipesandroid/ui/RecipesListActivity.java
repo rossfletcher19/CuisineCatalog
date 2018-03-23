@@ -1,4 +1,4 @@
-package com.epicodus.recipesandroid;
+package com.epicodus.recipesandroid.ui;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
+import com.epicodus.recipesandroid.R;
 import com.epicodus.recipesandroid.adapters.RecipeAdapter;
 import com.epicodus.recipesandroid.models.Recipe;
 

@@ -1,4 +1,4 @@
-package com.epicodus.recipesandroid;
+package com.epicodus.recipesandroid.services;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.epicodus.recipesandroid.R;
+import com.epicodus.recipesandroid.adapters.RecipeAdapter;
 import com.epicodus.recipesandroid.models.Recipe;
 import com.epicodus.recipesandroid.ui.MainActivity;
 

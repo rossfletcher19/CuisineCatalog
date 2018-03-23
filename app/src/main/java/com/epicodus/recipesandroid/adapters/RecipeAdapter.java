@@ -1,4 +1,4 @@
-package com.epicodus.recipesandroid;
+package com.epicodus.recipesandroid.adapters;
 
 
 import android.content.Context;
@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.epicodus.recipesandroid.R;
 import com.epicodus.recipesandroid.models.Recipe;
 
 import java.util.ArrayList;

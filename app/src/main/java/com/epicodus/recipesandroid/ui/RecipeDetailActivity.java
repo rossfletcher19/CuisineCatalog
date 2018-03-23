@@ -1,7 +1,9 @@
-package com.epicodus.recipesandroid;
+package com.epicodus.recipesandroid.ui;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.epicodus.recipesandroid.R;
 
 public class RecipeDetailActivity extends AppCompatActivity {
 
