@@ -56,9 +56,9 @@ public class EdamamSearchActivity extends AppCompatActivity {
 
 
 
-        private void getRecipes(String searchQuery) {
-            final EdamamService edamamService = new EdamamService();
-            edamamService.findRecipes(searchQuery, new Callback() {
+    private void getRecipes(String searchQuery) {
+        final EdamamService edamamService = new EdamamService();
+        edamamService.findRecipes(searchQuery, new Callback() {
 
                 @Override
                 public void onFailure(Call call, IOException e) {
@@ -75,17 +75,10 @@ public class EdamamSearchActivity extends AppCompatActivity {
 
                             mAdapter = new RecipeListAdapter(getApplicationContext(), recipes);
                             rvApiRecipesList.setAdapter(mAdapter);
-                            RecyclerView.LayoutManager layoutManager =
-                                    new LinearLayoutManager(EdamamSearchActivity.this);
+                            RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(EdamamSearchActivity.this);
                             rvApiRecipesList.setLayoutManager(layoutManager);
                             rvApiRecipesList.setHasFixedSize(true);
 
-//                    try {
-//                        String jsonData = response.body().string();
-//                        Log.v(TAG, jsonData);
-//                    } catch (IOException e) {
-//                        e.printStackTrace();
-//                    }
 
                         }
 
@@ -93,5 +86,5 @@ public class EdamamSearchActivity extends AppCompatActivity {
                 }
             });
 
-    }
+        }
     }

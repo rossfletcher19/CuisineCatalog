@@ -50,6 +50,7 @@ public class RecipeDetailFragment extends Fragment implements View.OnClickListen
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_recipe_detail, container, false);
         ButterKnife.bind(this, view);
+        mDirectionsTextViewLabel.setOnClickListener(this);
 
         Picasso.with(view.getContext())
                 .load(mRecipe.getImage())

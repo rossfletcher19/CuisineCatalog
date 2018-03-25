@@ -21,39 +21,39 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:color/white"
-            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:paddingBottom="20dp">
+            android:paddingTop="20dp">
 
             <TextView
+                android:id="@+id/recipeNameTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/recipeName"
-                android:id="@+id/recipeNameTextView"
                 android:layout_alignParentStart="true"
-                android:textSize="20sp"
+                android:text="@string/recipeName"
                 android:textColor="@color/colorPrimaryDark"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/ratingTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="4.5/5"
-                android:id="@+id/ratingTextView"
-                android:layout_alignTop="@+id/recipeNameTextView"
                 android:layout_alignParentEnd="true"
+                android:layout_alignTop="@+id/recipeNameTextView"
+                android:text="4.5/5"
                 android:textColor="@color/colorAccent"
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/cuisineTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Brunch, American"
-                android:id="@+id/cuisineTextView"
-                android:layout_below="@+id/ratingTextView"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
+                android:layout_below="@+id/ratingTextView"
+                android:text="Brunch, American"
                 android:textColor="@color/colorSecondaryText"
                 android:textStyle="italic" />
         </RelativeLayout>
@@ -63,53 +63,53 @@
             android:layout_height="match_parent">
 
             <LinearLayout
-                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
+                android:layout_above="@+id/saveRecipeButton"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_above="@+id/saveRecipeButton"
+                android:layout_alignParentTop="true"
+                android:orientation="vertical"
                 android:paddingLeft="30dp"
-                android:paddingTop="20dp"
-                android:paddingRight="30dp">
+                android:paddingRight="30dp"
+                android:paddingTop="20dp">
 
 
                 <TextView
+                    android:id="@+id/ingredientsTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/ingredients"
-                    android:id="@+id/ingredientsTextView"
+                    android:layout_marginBottom="10dp"
                     android:drawableLeft="@drawable/ic_list_white_24dp"
                     android:drawablePadding="4dp"
+                    android:gravity="center"
+                    android:text="@string/ingredients"
                     android:textColor="@color/colorTextIcons"
                     android:textSize="15sp"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="10dp"
-                    android:gravity="center"/>
+                    android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/directionsTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/recipeUrl"
+                    android:layout_marginBottom="10dp"
                     android:drawableLeft="@drawable/ic_subject_white_24dp"
                     android:drawablePadding="4dp"
-                    android:id="@+id/directionsTextView"
+                    android:gravity="center_vertical"
+                    android:text="@string/recipeUrl"
                     android:textColor="@color/colorTextIcons"
                     android:textSize="15sp"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="10dp"
-                    android:gravity="center_vertical"/>
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
             <Button
+                android:id="@+id/saveRecipeButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Save Recipe"
-                android:id="@+id/saveRecipeButton"
                 android:layout_alignParentBottom="true"
                 android:background="@color/colorAccent"
+                android:text="Save Recipe"
                 android:textColor="@color/colorTextIcons"
                 android:textSize="15sp" />
         </RelativeLayout>
