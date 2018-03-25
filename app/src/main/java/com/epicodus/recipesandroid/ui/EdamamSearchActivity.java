@@ -1,5 +1,6 @@
 package com.epicodus.recipesandroid.ui;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -8,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.epicodus.recipesandroid.R;
 import com.epicodus.recipesandroid.adapters.RecipeListAdapter;
@@ -44,6 +46,7 @@ public class EdamamSearchActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+
                 String searchQuery = mApiSearchEditText.getText().toString();
                 getRecipes(searchQuery);
 
@@ -68,21 +71,33 @@ public class EdamamSearchActivity extends AppCompatActivity {
                 @Override
                 public void onResponse(Call call, final Response response) throws IOException {
                     recipes = edamamService.processResults(response);
-                    EdamamSearchActivity.this.runOnUiThread(new Runnable() {
+                    if (recipes.size() == 0) {
+                        EdamamSearchActivity.this.runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                Toast.makeText(getApplicationContext(),"No Recipes Found", Toast.LENGTH_LONG).show();
+                                Intent intent = new Intent(EdamamSearchActivity.this, EdamamSearchActivity.class);
+                                startActivity(intent);
+                            }
+                        });
 
-                        @Override
-                        public void run() {
+                    } else {
+                        EdamamSearchActivity.this.runOnUiThread(new Runnable() {
 
-                            mAdapter = new RecipeListAdapter(getApplicationContext(), recipes);
-                            rvApiRecipesList.setAdapter(mAdapter);
-                            RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(EdamamSearchActivity.this);
-                            rvApiRecipesList.setLayoutManager(layoutManager);
-                            rvApiRecipesList.setHasFixedSize(true);
+                            @Override
+                            public void run() {
+
+                                mAdapter = new RecipeListAdapter(getApplicationContext(), recipes);
+                                rvApiRecipesList.setAdapter(mAdapter);
+                                RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(EdamamSearchActivity.this);
+                                rvApiRecipesList.setLayoutManager(layoutManager);
+                                rvApiRecipesList.setHasFixedSize(true);
 
 
-                        }
+                            }
 
-                    });
+                        });
+                    }
                 }
             });
 

@@ -24,7 +24,7 @@ public class RecipeDetailFragment extends Fragment implements View.OnClickListen
     @BindView(R.id.recipeImageView) ImageView mRecipeImageViewLabel;
     @BindView(R.id.recipeNameTextView) TextView mRecipeNameTextViewLabel;
     @BindView(R.id.ingredientsTextView) TextView mIngredientsTextViewLabel;
-    @BindView(R.id.directionsTextView) TextView mDirectionsTextViewLabel;
+    @BindView(R.id.sourceTextView) TextView mSourceTextViewLabel;
     @BindView(R.id.saveRecipeButton) TextView mSaveRecipeButtonLabel;
 
     private Recipe mRecipe;
@@ -50,7 +50,7 @@ public class RecipeDetailFragment extends Fragment implements View.OnClickListen
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_recipe_detail, container, false);
         ButterKnife.bind(this, view);
-        mDirectionsTextViewLabel.setOnClickListener(this);
+        mSourceTextViewLabel.setOnClickListener(this);
 
         Picasso.with(view.getContext())
                 .load(mRecipe.getImage())
@@ -68,7 +68,7 @@ public class RecipeDetailFragment extends Fragment implements View.OnClickListen
 
     @Override
     public void onClick(View v) {
-        if (v == mDirectionsTextViewLabel) {
+        if (v == mSourceTextViewLabel) {
             Intent directionsIntent = new Intent(Intent.ACTION_VIEW,
                     Uri.parse(mRecipe.getUrl()));
             startActivity(directionsIntent);
