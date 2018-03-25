@@ -48,7 +48,12 @@ public class EdamamSearchActivity extends AppCompatActivity {
 
 
                 String searchQuery = mApiSearchEditText.getText().toString();
-                getRecipes(searchQuery);
+                if (searchQuery.length() == 0) {
+                    Toast.makeText(getApplicationContext(),"Please enter valid search terms", Toast.LENGTH_LONG).show();
+                } else {
+                    getRecipes(searchQuery);
+                }
+
 
             }
         });

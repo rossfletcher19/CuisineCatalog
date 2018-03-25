@@ -18,9 +18,16 @@
 
 ## Setup/Installation Requirements
 
-* _Clone or fork project down_
+* _Clone or fork project_
+* _Create an developer account for the Recipe Search API at [@Edamam](https://developer.edamam.com/edamam-recipe-api)_
+* _Create a gradle.properies file in the CuisinCatalog project directory and place your ID and KEY in the format below._
 * _Use Android Studio to let project gradle build and then create a new virtual device with AVD manager_
 * _Run app on virtual device, let the emulator start up to display the app._
+
+```
+EdamamId = "id"
+EdamamKey = "key"
+```
 
 ## UX/UI
   * Develop custom style
