@@ -2,13 +2,15 @@ package com.epicodus.recipesandroid.ui;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
 import com.epicodus.recipesandroid.R;
-import com.epicodus.recipesandroid.adapters.RecipeAdapter;
+import com.epicodus.recipesandroid.adapters.RecipeListAdapter;
 import com.epicodus.recipesandroid.models.Recipe;
 import com.epicodus.recipesandroid.services.EdamamService;
 
@@ -26,8 +28,10 @@ public class EdamamSearchActivity extends AppCompatActivity {
     public static final String TAG = MainActivity.class.getSimpleName();
     @BindView(R.id.apiSearchPageButton) Button bApiSearchPageButton;
     @BindView(R.id.apiSearchEditText) EditText mApiSearchEditText;
-    ArrayList<Recipe> recipes;
-    RecipeAdapter adapter;
+    @BindView(R.id.rvApiRecipesList) RecyclerView rvApiRecipesList;
+    private RecipeListAdapter mAdapter;
+    public ArrayList<Recipe> recipes = new ArrayList<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,25 +66,32 @@ public class EdamamSearchActivity extends AppCompatActivity {
                 }
 
                 @Override
-                public void onResponse(Call call, Response response) throws IOException {
-                    try {
-                        String jsonData = response.body().string();
-                        Log.v(TAG, jsonData);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+                public void onResponse(Call call, final Response response) throws IOException {
+                    recipes = edamamService.processResults(response);
+                    EdamamSearchActivity.this.runOnUiThread(new Runnable() {
+
+                        @Override
+                        public void run() {
+
+                            mAdapter = new RecipeListAdapter(getApplicationContext(), recipes);
+                            rvApiRecipesList.setAdapter(mAdapter);
+                            RecyclerView.LayoutManager layoutManager =
+                                    new LinearLayoutManager(EdamamSearchActivity.this);
+                            rvApiRecipesList.setLayoutManager(layoutManager);
+                            rvApiRecipesList.setHasFixedSize(true);
+
+//                    try {
+//                        String jsonData = response.body().string();
+//                        Log.v(TAG, jsonData);
+//                    } catch (IOException e) {
+//                        e.printStackTrace();
+//                    }
+
+                        }
+
+                    });
                 }
-
             });
-        }
-
-//        recipes = Recipe.createRecipeList();
-//        RecyclerView rvApiRecipes = (RecyclerView)findViewById(R.id.rvApiRecipesList);
-//        adapter = new RecipeAdapter(this, recipes);
-//        rvApiRecipes.setLayoutManager(new LinearLayoutManager(this));
-//        rvApiRecipes.setAdapter(adapter);
-
-
 
     }
-
+    }

@@ -1,8 +1,14 @@
 package com.epicodus.recipesandroid.services;
 
-import com.epicodus.recipesandroid.Constants;
 import com.epicodus.recipesandroid.models.Recipe;
+import com.epicodus.recipesandroid.Constants;
 
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
 import java.util.ArrayList;
 
 import okhttp3.Call;
@@ -34,6 +40,45 @@ public class EdamamService {
         Call call = client.newCall(request);
         call.enqueue(callback);
 
+    }
+
+    public ArrayList<Recipe> processResults(Response response){
+        ArrayList<Recipe> allRecipes = new ArrayList<>();
+        try{
+            String jsonData = response.body().string();
+            if(response.isSuccessful()){
+                JSONObject recipeCatalogJSON = new JSONObject(jsonData);
+                JSONArray recipesJSON = recipeCatalogJSON.getJSONArray("hits");
+                for (int i = 0; i<recipesJSON.length();i++){
+                    //gets specific hit
+                    JSONObject recipeJSON = recipesJSON.getJSONObject(i);
+                    //goes into the recipe portion of hit
+                    JSONObject currentRecipe = recipeJSON.getJSONObject("recipe");
+                    String title = currentRecipe.getString("label");
+                    String image = currentRecipe.getString("image");
+                    String url = currentRecipe.getString("url");
+                    int calories = currentRecipe.getInt("calories");
+                    int servings = currentRecipe.getInt("yield");
+
+                    //looks into an array of ingredients and add them to the recipe
+                    ArrayList<String> ingredients = new ArrayList<>();
+                    JSONArray ingredientList = currentRecipe.getJSONArray("ingredientLines");
+                    for(int j = 0; j< ingredientList.length(); j++){
+                        ingredients.add(ingredientList.get(j).toString());
+                    }
+
+                    Recipe recipe = new Recipe(title,image,url,ingredients,calories,servings);
+                    allRecipes.add(recipe);
+                }
+
+            }
+
+        }catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return allRecipes;
     }
 
 
