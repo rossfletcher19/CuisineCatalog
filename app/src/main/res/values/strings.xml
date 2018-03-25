@@ -10,7 +10,7 @@
     <string name="see_the_catalog_button">See the Catalog!</string>
     <string name="current_cuisines">Current Cuisines</string>
     <string name="recipeName">Recipe Name:</string>
-    <string name="recipeUrl">Recipe Source</string>
+    <string name="recipeUrl">Click here for the full recipe!</string>
     <string name="recipeCourse">Course:</string>
     <string name="ingredients">Ingredients:</string>
     <string name="directions">Directions:</string>
