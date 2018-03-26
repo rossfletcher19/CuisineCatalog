@@ -57,8 +57,8 @@ public class EdamamService {
                     String title = currentRecipe.getString("label");
                     String image = currentRecipe.getString("image");
                     String url = currentRecipe.getString("url");
-                    int calories = currentRecipe.getInt("calories");
-                    int servings = currentRecipe.getInt("yield");
+                    String calories = Integer.toString(currentRecipe.getInt("calories"));
+                    String servings = Integer.toString(currentRecipe.getInt("yield"));
 
                     //looks into an array of ingredients and add them to the recipe
                     ArrayList<String> ingredients = new ArrayList<>();

@@ -54,16 +54,15 @@
                 android:paddingRight="30dp"
                 android:paddingTop="20dp">
 
-
                 <TextView
-                    android:id="@+id/ingredientsTextView"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/caloriesTextView"
+                    android:layout_width="115dp"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
-                    android:drawableLeft="@drawable/ic_list_white_24dp"
                     android:drawablePadding="4dp"
+                    android:drawableStart="@drawable/ic_list_white_24dp"
                     android:gravity="center"
-                    android:text="@string/ingredients"
+                    android:text="@string/calories"
                     android:textColor="@color/colorTextIcons"
                     android:textSize="15sp"
                     android:textStyle="bold" />
@@ -73,13 +72,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
-                    android:drawableLeft="@drawable/ic_subject_white_24dp"
+                    android:drawableStart="@drawable/ic_subject_white_24dp"
                     android:drawablePadding="4dp"
                     android:gravity="center_vertical"
                     android:text="@string/recipeUrl"
                     android:textColor="@color/colorTextIcons"
                     android:textSize="15sp"
                     android:textStyle="bold" />
+
 
             </LinearLayout>
 

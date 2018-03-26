@@ -12,7 +12,7 @@
     <string name="recipeName">Recipe Name:</string>
     <string name="recipeUrl">Click here for the full recipe!</string>
     <string name="recipeCourse">Course:</string>
-    <string name="ingredients">Ingredients:</string>
+    <string name="calories">Calories</string>
     <string name="directions">Directions:</string>
     <string name="recipeImgDesc">Image of finished recipe</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>

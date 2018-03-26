@@ -23,7 +23,7 @@ import butterknife.ButterKnife;
 public class RecipeDetailFragment extends Fragment implements View.OnClickListener {
     @BindView(R.id.recipeImageView) ImageView mRecipeImageViewLabel;
     @BindView(R.id.recipeNameTextView) TextView mRecipeNameTextViewLabel;
-    @BindView(R.id.ingredientsTextView) TextView mIngredientsTextViewLabel;
+    @BindView(R.id.caloriesTextView) TextView mCaloriesTextViewLabel;
     @BindView(R.id.sourceTextView) TextView mSourceTextViewLabel;
     @BindView(R.id.saveRecipeButton) TextView mSaveRecipeButtonLabel;
 
@@ -57,11 +57,12 @@ public class RecipeDetailFragment extends Fragment implements View.OnClickListen
                 .into(mRecipeImageViewLabel);
 
         mRecipeNameTextViewLabel.setText(mRecipe.getTitle());
-        String print = "";
-        for (String ingredient : mRecipe.getIngredientLines()) {
-            print += ingredient;
-        }
-        mIngredientsTextViewLabel.setText(print);
+        mCaloriesTextViewLabel.setText(mRecipe.getCalories());
+//        String print = "";
+//        for (String ingredient : mRecipe.getIngredientLines()) {
+//            print += ingredient;
+//        }
+//        mIngredientsTextViewLabel.setText(print);
 
         return view;
     }
