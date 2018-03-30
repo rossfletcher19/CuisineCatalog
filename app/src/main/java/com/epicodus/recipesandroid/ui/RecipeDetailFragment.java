@@ -10,9 +10,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.epicodus.recipesandroid.Constants;
 import com.epicodus.recipesandroid.R;
 import com.epicodus.recipesandroid.models.Recipe;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
@@ -58,13 +62,10 @@ public class RecipeDetailFragment extends Fragment implements View.OnClickListen
                 .load(mRecipe.getImage())
                 .into(mRecipeImageViewLabel);
 
-//        mRecipeNameTextViewLabel.setText(mRecipe.getTitle());
+
         mCaloriesTextViewLabel.setText(mRecipe.getCalories());
-//        String print = "";
-//        for (String ingredient : mRecipe.getIngredientLines()) {
-//            print += ingredient;
-//        }
-//        mIngredientsTextViewLabel.setText(print);
+
+        mSaveRecipeButtonLabel.setOnClickListener(this);
 
         return view;
     }
@@ -75,6 +76,13 @@ public class RecipeDetailFragment extends Fragment implements View.OnClickListen
             Intent directionsIntent = new Intent(Intent.ACTION_VIEW,
                     Uri.parse(mRecipe.getUrl()));
             startActivity(directionsIntent);
+        }
+        if (v == mSaveRecipeButtonLabel) {
+            DatabaseReference restaurantRef = FirebaseDatabase
+                    .getInstance()
+                    .getReference(Constants.FIREBASE_CHILD_RECIPES);
+            restaurantRef.push().setValue(mRecipe);
+            Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
         }
 
     }
