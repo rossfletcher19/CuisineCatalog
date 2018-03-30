@@ -15,7 +15,7 @@ public class Recipe {
     private String title;
     private String image;
     private String url;
-    private List<String> ingredientLines;
+    private List<String> ingredientLines = new ArrayList<>();
     private String calories;
     private String servings;
     private String cuisine;
@@ -24,7 +24,7 @@ public class Recipe {
 
     public Recipe(){}
 
-    public Recipe(String title, String image, String url, List<String> ingredientLines, String calories, String servings) {
+    public Recipe(String title, String image, String url, ArrayList<String> ingredientLines, String calories, String servings) {
         this.title = title;
         this.image = image;
         this.url = url;
