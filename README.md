@@ -9,10 +9,10 @@
 
 | Behaviour | Input  | Output  |
 |---|---|---|
-| A user can view a homepage with about/bio and login/register features | User views main activity  | User sees main activity page with about/bio section and login/register features  |
-| A user can view a list of recipes  | User selects specific cuisine from cuisine list activity  | User sees list of recipes within that cuisine  |
+| A user can view a homepage with about/bio and drawer menu with user profile features, saved recipes, and a leave feedback path | User views main activity  | User sees main activity page with about/bio section and drawer menu features, user profile features, saved recipes, and a leave feedback path  |
+| A user can view a list of recipes from the edamam api, site created recipes, and their saved recipes.  | User selects specific cuisine from cuisine list activity  | User sees list of recipes within that cuisine  |
 | A user can see input/reviews of a recipe  | User clicks on a recipe  | User sees recipe, along with comments and reviews on the recipe  |
-| A user can login or create an account with account info  | User visits home page  | User sees feature to register a user name and pw or login with previously created user name and pw |
+| A user can login or create an account with account info through Firebase.  | User opens app  | User arrives at login feature to register a user name and pw or login with previously created user name and pw |
 | A admin can login and add, edit or delete a recipe  |  Admin visits admin area and logs in | Admin sees list of all recipes and posts and has ability to edit or delete recipes/posts  |
 | A user  |   |   |
 
