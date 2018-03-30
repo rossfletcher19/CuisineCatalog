@@ -13,11 +13,12 @@ import com.epicodus.recipesandroid.models.Recipe;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class RecipesListActivity extends AppCompatActivity{
 //    private ListView mRecipeListview;
 //    private ListView mcuisineListView;
-    ArrayList<Recipe> recipes;
+    List<Recipe> recipes;
     RecipeListAdapter adapter;
 
 

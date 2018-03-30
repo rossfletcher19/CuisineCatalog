@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "931843168917",
+    "firebase_url": "https://cuisinecatalog.firebaseio.com",
+    "project_id": "cuisinecatalog",
+    "storage_bucket": "cuisinecatalog.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:931843168917:android:d2e0fbb000d0b04e",
+        "android_client_info": {
+          "package_name": "com.epicodus.recipesandroid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "931843168917-ggq52p7u913e1ucnm31jh38veq9v34rk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.epicodus.recipesandroid",
+            "certificate_hash": "6d33c529dacd0b33a25247bd1fb56034c53de6bf"
+          }
+        },
+        {
+          "client_id": "931843168917-1vftq6j6ksptu91u25sacd7ndu9cmnos.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4cheFheRb83CKkX7T0NMlb4torNoArhs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "931843168917-1vftq6j6ksptu91u25sacd7ndu9cmnos.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

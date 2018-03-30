@@ -7,6 +7,7 @@ import org.parceler.Parcel;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 
 @Parcel
@@ -14,7 +15,7 @@ public class Recipe {
     private String title;
     private String image;
     private String url;
-    private ArrayList<String> ingredientLines;
+    private List<String> ingredientLines;
     private String calories;
     private String servings;
     private String cuisine;
@@ -23,7 +24,7 @@ public class Recipe {
 
     public Recipe(){}
 
-    public Recipe(String title, String image, String url, ArrayList<String> ingredientLines, String calories, String servings) {
+    public Recipe(String title, String image, String url, List<String> ingredientLines, String calories, String servings) {
         this.title = title;
         this.image = image;
         this.url = url;
@@ -58,7 +59,7 @@ public class Recipe {
         this.url = url;
     }
 
-    public ArrayList<String> getIngredientLines() {
+    public List<String> getIngredientLines() {
         return ingredientLines;
     }
 
@@ -90,10 +91,10 @@ public class Recipe {
         this.cuisine = cuisine;
     }
 
-    public static ArrayList<Recipe> createRecipeList() {
+    public static List<Recipe> createRecipeList() {
 
 
-        ArrayList<Recipe> recipes = new ArrayList<>();
+        List<Recipe> recipes = new ArrayList<>();
 
 //                Recipe recipe1x = new Recipe("title", "img", "url", new ArrayList<>(Arrays.asList("","","","","","","","","","",""} , "cal", "servings", "course", "cuisine", "description");
 
