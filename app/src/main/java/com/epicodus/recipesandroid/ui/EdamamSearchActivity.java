@@ -29,6 +29,7 @@ import okhttp3.Callback;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -38,7 +39,7 @@ public class EdamamSearchActivity extends AppCompatActivity {
     public static final String TAG = MainActivity.class.getSimpleName();
     @BindView(R.id.rvApiRecipesList) RecyclerView rvApiRecipesList;
     private RecipeListAdapter mAdapter;
-    public ArrayList<Recipe> recipes = new ArrayList<>();
+    public List<Recipe> recipes = new ArrayList<>();
 
 
 

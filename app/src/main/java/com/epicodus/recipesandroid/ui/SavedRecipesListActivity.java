@@ -20,7 +20,7 @@ public class SavedRecipesListActivity extends AppCompatActivity {
     private DatabaseReference mRecipeReference;
     private FirebaseRecyclerAdapter mFirebaseAdapter;
 
-    @BindView(R.id.rvRecipesList) RecyclerView rvRecipesListLabel;
+    @BindView(R.id.rvRecipesList) RecyclerView rvRecipesListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +28,9 @@ public class SavedRecipesListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_recipes_list);
         ButterKnife.bind(this);
 
-        mRecipeReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_RECIPES);
+        mRecipeReference = FirebaseDatabase
+                .getInstance()
+                .getReference(Constants.FIREBASE_CHILD_RECIPES);
 //        setUpFirebaseAdapter();
     }
 
@@ -41,9 +43,9 @@ public class SavedRecipesListActivity extends AppCompatActivity {
 //                viewHolder.bindRecipe(model);
 //            }
 //        };
-//        rvRecipesListLabel.setHasFixedSize(true);
-//        rvRecipesListLabel.setLayoutManager(new LinearLayoutManager(this));
-//        rvRecipesListLabel.setAdapter(mFirebaseAdapter);
+//        rvRecipesListView.setHasFixedSize(true);
+//        rvRecipesListView.setLayoutManager(new LinearLayoutManager(this));
+//        rvRecipesListView.setAdapter(mFirebaseAdapter);
 //    }
 
 //    @Override

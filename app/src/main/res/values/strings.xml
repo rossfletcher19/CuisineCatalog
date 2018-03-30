@@ -20,4 +20,8 @@
     <string name="search_edamam_first">Search The Edamam API</string>
     <string name="search_edamam">Search Edamam!</string>
     <string name="nutritional_info">Nutritional Info:</string>
+    <string name="login">Login</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="no_account">Need an account? Sign up here!</string>
 </resources>
