@@ -22,7 +22,7 @@ import butterknife.ButterKnife;
 
 public class RecipeDetailFragment extends Fragment implements View.OnClickListener {
     @BindView(R.id.recipeImageView) ImageView mRecipeImageViewLabel;
-    @BindView(R.id.recipeNameTextView) TextView mRecipeNameTextViewLabel;
+//    @BindView(R.id.recipeNameTextView) TextView mRecipeNameTextViewLabel;
     @BindView(R.id.caloriesTextView) TextView mCaloriesTextViewLabel;
     @BindView(R.id.sourceTextView) TextView mSourceTextViewLabel;
     @BindView(R.id.saveRecipeButton) TextView mSaveRecipeButtonLabel;
@@ -41,6 +41,8 @@ public class RecipeDetailFragment extends Fragment implements View.OnClickListen
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
         mRecipe = Parcels.unwrap(getArguments().getParcelable("recipe"));
     }
@@ -56,7 +58,7 @@ public class RecipeDetailFragment extends Fragment implements View.OnClickListen
                 .load(mRecipe.getImage())
                 .into(mRecipeImageViewLabel);
 
-        mRecipeNameTextViewLabel.setText(mRecipe.getTitle());
+//        mRecipeNameTextViewLabel.setText(mRecipe.getTitle());
         mCaloriesTextViewLabel.setText(mRecipe.getCalories());
 //        String print = "";
 //        for (String ingredient : mRecipe.getIngredientLines()) {

@@ -5,82 +5,104 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.epicodus.recipesandroid.ui.RecipeDetailFragment"
-    tools:layout_editor_absoluteY="81dp">
+    tools:layout_editor_absoluteY="81dp"
+    android:background="@color/colorPrimaryDark">
 
     <ImageView
         android:id="@+id/recipeImageView"
         android:layout_width="0dp"
         android:layout_height="180dp"
-        android:layout_marginTop="268dp"
+        android:layout_marginTop="276dp"
         android:contentDescription="@string/hello_blank_fragment"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
     <TextView
-        android:id="@+id/recipeNameTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
+        android:id="@+id/textView2"
+        android:layout_width="173dp"
+        android:layout_height="33dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="40dp"
-        android:text="@string/recipeName"
-        android:textColor="@color/colorPrimaryDark"
+        android:layout_marginTop="16dp"
+        android:text="@string/nutritional_info"
+        android:textColor="@color/colorPrimaryLight"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.086"
+        app:layout_constraintHorizontal_bias="0.108"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!--<TextView-->
+        <!--android:id="@+id/recipeNameTextView"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentStart="true"-->
+        <!--android:layout_marginEnd="8dp"-->
+        <!--android:layout_marginStart="8dp"-->
+        <!--android:layout_marginTop="16dp"-->
+        <!--android:text="@string/recipeName"-->
+        <!--android:textColor="@color/colorPrimaryDark"-->
+        <!--android:textSize="20sp"-->
+        <!--android:textStyle="bold"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintHorizontal_bias="0.086"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toTopOf="parent" />-->
+    <TextView
+        android:id="@+id/tvCalsListItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/calories"
+        android:textColor="@color/colorPrimaryLight"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/caloriesTextView"
+        app:layout_constraintHorizontal_bias="0.848"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <TextView
         android:id="@+id/caloriesTextView"
         android:layout_width="115dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginEnd="204dp"
         android:layout_marginTop="8dp"
         android:drawablePadding="4dp"
-        android:drawableStart="@drawable/ic_list_white_24dp"
         android:gravity="center"
         android:text="@string/calories"
-        android:textColor="@color/colorTextIcons"
+        android:textColor="@color/colorPrimaryLight"
         android:textSize="15sp"
-        android:textStyle="bold"
+        android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.083"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recipeNameTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <TextView
         android:id="@+id/sourceTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="20dp"
         android:drawablePadding="4dp"
         android:drawableStart="@drawable/ic_subject_white_24dp"
         android:gravity="center_vertical"
         android:text="@string/recipeUrl"
-        android:textColor="@color/colorTextIcons"
+        android:textColor="@color/colorPrimaryLight"
         android:textSize="15sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.145"
+        app:layout_constraintHorizontal_bias="0.139"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/caloriesTextView"
-        app:layout_constraintVertical_bias="0.007" />
-
+        app:layout_constraintTop_toBottomOf="@+id/recipeImageView" />
 
     <Button
         android:id="@+id/saveRecipeButton"
@@ -99,8 +121,11 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recipeImageView"
-        app:layout_constraintVertical_bias="0.027" />
+        app:layout_constraintTop_toBottomOf="@+id/sourceTextView"
+        app:layout_constraintVertical_bias="1.0" />
+
+
+
 
 </android.support.constraint.ConstraintLayout>
 
