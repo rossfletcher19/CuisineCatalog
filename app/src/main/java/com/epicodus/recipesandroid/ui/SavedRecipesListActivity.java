@@ -1,15 +1,20 @@
 package com.epicodus.recipesandroid.ui;
 
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import com.epicodus.recipesandroid.Constants;
 import com.epicodus.recipesandroid.R;
 import com.epicodus.recipesandroid.adapters.FirebaseRecipeViewHolder;
 import com.epicodus.recipesandroid.models.Recipe;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -31,26 +36,44 @@ public class SavedRecipesListActivity extends AppCompatActivity {
         mRecipeReference = FirebaseDatabase
                 .getInstance()
                 .getReference(Constants.FIREBASE_CHILD_RECIPES);
-//        setUpFirebaseAdapter();
+        setUpFirebaseAdapter();
     }
 
-//    private void setUpFirebaseAdapter() {
-//        mFirebaseAdapter = new FirebaseRecyclerAdapter<Recipe, FirebaseRecipeViewHolder>
-//                (Recipe.class, R.layout.recipe_list_item, FirebaseRecipeViewHolder.class, mRecipeReference) {
-//
-//            @Override
-//            protected void populateViewHolder(FirebaseRecipeViewHolder viewHolder, Recipe model, int position) {
-//                viewHolder.bindRecipe(model);
-//            }
-//        };
-//        rvRecipesListView.setHasFixedSize(true);
-//        rvRecipesListView.setLayoutManager(new LinearLayoutManager(this));
-//        rvRecipesListView.setAdapter(mFirebaseAdapter);
-//    }
+    private void setUpFirebaseAdapter() {
+        FirebaseRecyclerOptions<Recipe> options =
+                new FirebaseRecyclerOptions.Builder<Recipe>()
+                        .setQuery(mRecipeReference, Recipe.class)
+                        .build();
 
-//    @Override
-//    protected void onDestroy() {
-//        super.onDestroy();
-//        mFirebaseAdapter.cleanup();
-//    }
+        mFirebaseAdapter = new FirebaseRecyclerAdapter<Recipe, FirebaseRecipeViewHolder>(options) {
+
+            @Override
+            protected void onBindViewHolder(FirebaseRecipeViewHolder viewHolder, int position, Recipe model) {
+                viewHolder.bindRecipe(model);
+            }
+
+            @NonNull
+            @Override
+            public FirebaseRecipeViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recipe_list_item, parent, false);
+                return new FirebaseRecipeViewHolder(view);
+            }
+
+        };
+        rvRecipesListView.setHasFixedSize(true);
+        rvRecipesListView.setLayoutManager(new LinearLayoutManager(this));
+        rvRecipesListView.setAdapter(mFirebaseAdapter);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mFirebaseAdapter.startListening();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        mFirebaseAdapter.stopListening();
+    }
 }

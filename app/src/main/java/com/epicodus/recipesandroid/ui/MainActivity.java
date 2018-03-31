@@ -110,6 +110,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (id == R.id.nav_user_profile) {
             // Handle the camera action
         } else if (id == R.id.nav_my_recipes) {
+            Intent intent = new Intent(MainActivity.this, SavedRecipesListActivity.class);
+            startActivity(intent);
 
         } else if (id == R.id.nav_feedback) {
 
