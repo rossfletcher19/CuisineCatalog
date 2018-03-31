@@ -9,14 +9,19 @@
     <string name="about_text">"Street art lomo cred you probably haven't heard of them VHS taxidermy palo santo selvage migas photo booth. Humblebrag occupy tumeric, authentic hashtag chillwave thundercats tilde etsy franzen. Slow-carb offal brunch tumblr chartreuse neutra."</string>
     <string name="see_the_catalog_button">See the Catalog!</string>
     <string name="current_cuisines">Current Cuisines</string>
-    <string name="recipeName">Recipe Name:</string>
+    <string name="recipeName">Recipe Name</string>
     <string name="recipeUrl">Click here for the full recipe!</string>
     <string name="recipeCourse">Course:</string>
-    <string name="calories">Calories</string>
+    <string name="calories">Calories:</string>
     <string name="directions">Directions:</string>
     <string name="recipeImgDesc">Image of finished recipe</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="enter_recipe_search">enter recipe search terms</string>
     <string name="search_edamam_first">Search The Edamam API</string>
     <string name="search_edamam">Search Edamam!</string>
+    <string name="nutritional_info">Nutritional Info:</string>
+    <string name="login">Login</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="no_account">Need an account? Sign up here!</string>
 </resources>

@@ -18,6 +18,7 @@ import com.squareup.picasso.Picasso;
 import org.parceler.Parcels;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -25,10 +26,10 @@ import butterknife.ButterKnife;
 public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.ViewHolder> {
     private static final int MAX_WIDTH = 200;
     private static final int MAX_HEIGHT = 200;
-    private ArrayList<Recipe> mRecipes;
+    private List<Recipe> mRecipes;
     private Context mContext;
 
-    public RecipeListAdapter(Context context, ArrayList<Recipe> recipes) {
+    public RecipeListAdapter(Context context, List<Recipe> recipes) {
         mRecipes = recipes;
         mContext = context;
     }
