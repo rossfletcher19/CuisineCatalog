@@ -19,6 +19,11 @@
 ## Setup/Installation Requirements
 
 * _Clone or fork project_
+#### Firebase Setup
+* _If you dont have a firebase account create one at [@Firebase](https://firebase.google.com/) and create a new project, assigning it the SHA-1 key found in the signing report pictured [here](https://i.imgur.com/XZpxqzf.gif)_
+* _Place the google-services.json in the app module root directory.
+* _Re-sync project with gradle and move onto API setup
+#### API Setup
 * _Create a free developer account for the Recipe Search API at [@Edamam](https://developer.edamam.com/edamam-recipe-api)_
 * _Create a gradle.properies file in the CuisinCatalog project directory and place your ID and KEY in the format below._
 * _Use Android Studio to let project gradle build and then create a new virtual device with AVD manager_

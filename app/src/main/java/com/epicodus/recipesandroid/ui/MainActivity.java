@@ -100,7 +100,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (id == R.id.action_logout) {
             logout();
             return true;
-
         }
 
         return super.onOptionsItemSelected(item);
