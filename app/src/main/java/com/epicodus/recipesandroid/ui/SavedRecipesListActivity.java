@@ -46,6 +46,10 @@ public class SavedRecipesListActivity extends AppCompatActivity {
     }
 
     private void setUpFirebaseAdapter() {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String uid = user.getUid();
+
+
         FirebaseRecyclerOptions<Recipe> options =
                 new FirebaseRecyclerOptions.Builder<Recipe>()
                         .setQuery(mRecipeReference, Recipe.class)
