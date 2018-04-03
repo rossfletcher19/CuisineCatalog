@@ -40,15 +40,31 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+
+        mAuth = FirebaseAuth.getInstance();
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
+
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user != null) {
+                    getSupportActionBar().setTitle("Welcome, " + user.getDisplayName() + "!");
+                } else {
+
+                }
+            }
+        };
 
         mMainHeadingTextView = (TextView) findViewById(R.id.mainHeadingTextView);
         Typeface headingFont = Typeface.createFromAsset(getAssets(), "fonts/Windsong.ttf");
         mMainHeadingTextView.setTypeface(headingFont);
-
-        mAuth = FirebaseAuth.getInstance();
-
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -80,21 +96,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
-        mAuthListener = new FirebaseAuth.AuthStateListener() {
-
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-                if (user != null) {
-                    getSupportActionBar().setTitle("Welcome, " + user.getDisplayName() + "!");
-                } else {
-
-                }
-            }
-        };
-
-
     }
 
     @Override

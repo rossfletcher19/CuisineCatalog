@@ -20,8 +20,6 @@ public class Recipe {
     private String servings;
     private String cuisine;
 
-
-
     public Recipe(){}
 
     public Recipe(String title, String image, String url, ArrayList<String> ingredientLines, String calories, String servings) {

@@ -4,22 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
     tools:context="com.epicodus.recipesandroid.ui.RecipeDetailFragment"
-    tools:layout_editor_absoluteY="81dp"
-    android:background="@color/colorPrimaryDark">
+    tools:layout_editor_absoluteY="81dp">
 
     <ImageView
         android:id="@+id/recipeImageView"
-        android:layout_width="0dp"
-        android:layout_height="180dp"
-        android:layout_marginTop="276dp"
+        android:layout_width="194dp"
+        android:layout_height="196dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/image_border"
         android:contentDescription="@string/hello_blank_fragment"
-        android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -33,32 +31,32 @@
         android:textColor="@color/colorPrimaryLight"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.108"
+        app:layout_constraintEnd_toStartOf="@+id/recipeImageView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <!--<TextView-->
-        <!--android:id="@+id/recipeNameTextView"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_alignParentStart="true"-->
-        <!--android:layout_marginEnd="8dp"-->
-        <!--android:layout_marginStart="8dp"-->
-        <!--android:layout_marginTop="16dp"-->
-        <!--android:text="@string/recipeName"-->
-        <!--android:textColor="@color/colorPrimaryDark"-->
-        <!--android:textSize="20sp"-->
-        <!--android:textStyle="bold"-->
-        <!--app:layout_constraintEnd_toEndOf="parent"-->
-        <!--app:layout_constraintHorizontal_bias="0.086"-->
-        <!--app:layout_constraintStart_toStartOf="parent"-->
-        <!--app:layout_constraintTop_toTopOf="parent" />-->
+    <!--android:id="@+id/recipeNameTextView"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignParentStart="true"-->
+    <!--android:layout_marginEnd="8dp"-->
+    <!--android:layout_marginStart="8dp"-->
+    <!--android:layout_marginTop="16dp"-->
+    <!--android:text="@string/recipeName"-->
+    <!--android:textColor="@color/colorPrimaryDark"-->
+    <!--android:textSize="20sp"-->
+    <!--android:textStyle="bold"-->
+    <!--app:layout_constraintEnd_toEndOf="parent"-->
+    <!--app:layout_constraintHorizontal_bias="0.086"-->
+    <!--app:layout_constraintStart_toStartOf="parent"-->
+    <!--app:layout_constraintTop_toTopOf="parent" />-->
     <TextView
         android:id="@+id/tvCalsListItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
+        android:layout_marginLeft="16dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="@string/calories"
@@ -66,15 +64,16 @@
         android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/caloriesTextView"
-        app:layout_constraintHorizontal_bias="0.848"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"/>
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <TextView
         android:id="@+id/caloriesTextView"
-        android:layout_width="115dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="204dp"
+        android:layout_width="74dp"
+        android:layout_height="23dp"
+        android:layout_marginEnd="48dp"
         android:layout_marginTop="8dp"
         android:drawablePadding="4dp"
         android:gravity="center"
@@ -82,7 +81,7 @@
         android:textColor="@color/colorPrimaryLight"
         android:textSize="15sp"
         android:textStyle="italic"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/recipeImageView"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <TextView
@@ -90,8 +89,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
+        android:layout_marginLeft="16dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="24dp"
         android:drawablePadding="4dp"
         android:drawableStart="@drawable/ic_subject_white_24dp"
         android:gravity="center_vertical"
@@ -100,9 +100,10 @@
         android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.139"
+        app:layout_constraintHorizontal_bias="0.046"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recipeImageView" />
+        app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
 
     <Button
         android:id="@+id/saveRecipeButton"
@@ -124,7 +125,15 @@
         app:layout_constraintTop_toBottomOf="@+id/sourceTextView"
         app:layout_constraintVertical_bias="1.0" />
 
-
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="0dp"
+        android:layout_height="249dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recipeImageView" />
 
 
 </android.support.constraint.ConstraintLayout>
