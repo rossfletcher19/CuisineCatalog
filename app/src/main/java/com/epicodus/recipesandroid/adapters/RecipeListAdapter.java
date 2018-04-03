@@ -50,6 +50,7 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Vi
         TextView textView1 = viewHolder.mRecipeNameTextView;
 //        ImageView imageView = viewHolder.mRecipeImageView;
         textView1.setText(recipe.getTitle());
+        viewHolder.bindRecipe(mRecipes.get(position));
 
     }
 
