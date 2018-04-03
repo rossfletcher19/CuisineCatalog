@@ -63,8 +63,6 @@ public class RecipeDetailFragment extends Fragment implements View.OnClickListen
         Picasso.with(view.getContext())
                 .load(mRecipe.getImage())
                 .into(mRecipeImageViewLabel);
-
-
         mCaloriesTextViewLabel.setText(mRecipe.getCalories());
 
         mSaveRecipeButtonLabel.setOnClickListener(this);
