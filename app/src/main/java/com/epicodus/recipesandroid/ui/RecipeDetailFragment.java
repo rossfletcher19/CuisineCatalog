@@ -15,6 +15,8 @@ import android.widget.Toast;
 import com.epicodus.recipesandroid.Constants;
 import com.epicodus.recipesandroid.R;
 import com.epicodus.recipesandroid.models.Recipe;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
@@ -78,10 +80,16 @@ public class RecipeDetailFragment extends Fragment implements View.OnClickListen
             startActivity(directionsIntent);
         }
         if (v == mSaveRecipeButtonLabel) {
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            String uid = user.getUid();
             DatabaseReference restaurantRef = FirebaseDatabase
                     .getInstance()
-                    .getReference(Constants.FIREBASE_CHILD_RECIPES);
-            restaurantRef.push().setValue(mRecipe);
+                    .getReference(Constants.FIREBASE_CHILD_RECIPES)
+                    .child(uid);
+            DatabaseReference pushRef = restaurantRef.push();
+            String pushId = pushRef.getKey();
+            mRecipe.setPushId(pushId);
+            pushRef.setValue(mRecipe);
             Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
         }
 

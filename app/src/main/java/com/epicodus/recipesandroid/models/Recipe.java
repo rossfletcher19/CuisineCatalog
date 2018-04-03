@@ -19,6 +19,7 @@ public class Recipe {
     private String calories;
     private String servings;
     private String cuisine;
+    private String pushId;
 
     public Recipe(){}
 
@@ -87,6 +88,14 @@ public class Recipe {
 
     public void setCuisine(String cuisine) {
         this.cuisine = cuisine;
+    }
+
+    public String getPushId() {
+        return pushId;
+    }
+
+    public void setPushId(String pushId) {
+        this.pushId = pushId;
     }
 
     public static List<Recipe> createRecipeList() {
