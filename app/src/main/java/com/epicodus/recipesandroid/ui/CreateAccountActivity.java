@@ -2,6 +2,8 @@ package com.epicodus.recipesandroid.ui;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,6 +15,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.epicodus.recipesandroid.Constants;
 import com.epicodus.recipesandroid.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -34,12 +37,16 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private ProgressDialog mAuthProgressDialog;
+    private SharedPreferences mSharedPreferences;
+    private SharedPreferences.Editor mEditor;
 
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_account);
         ButterKnife.bind(this);
+
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mEditor = mSharedPreferences.edit();
 
         mLoginTextView.setOnClickListener(this);
         mCreateUserButton.setOnClickListener(this);
@@ -97,6 +104,7 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
         }
         return true;
     }
+
     private void createNewUser() {
         final String name = mNameEditText.getText().toString().trim();
         final String email = mEmailEditText.getText().toString().trim();
@@ -107,6 +115,8 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
         boolean validName = isValidName(name);
         boolean validPassword = isValidPassword(password, confirmPassword);
         if (!validEmail || !validName || !validPassword) return;
+
+        addToSharedPreferences(name);
 
         mAuthProgressDialog.show();
 
@@ -123,6 +133,10 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
                         }
                     }
                 });
+    }
+
+    private void addToSharedPreferences(String name) {
+        mEditor.putString(Constants.PREFERENCES_NAME_KEY, name).apply();
     }
 
     private void createAuthStateListener() {

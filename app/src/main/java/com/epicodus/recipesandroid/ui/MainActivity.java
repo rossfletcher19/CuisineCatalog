@@ -1,8 +1,11 @@
 package com.epicodus.recipesandroid.ui;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.MenuInflater;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -16,6 +19,7 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.epicodus.recipesandroid.Constants;
 import com.epicodus.recipesandroid.R;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -26,6 +30,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @BindView(R.id.mainHeadingTextView) TextView mMainHeadingTextView;
     @BindView(R.id.seeCatalogButton) Button mSeeCatalogButton;
     @BindView(R.id.apiSearchPageButton) Button bApiSearchPageButton;
+    private SharedPreferences mSharedPreferences;
+    private String mRecentName;
 
 
     @Override
@@ -69,6 +75,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mRecentName = mSharedPreferences.getString(Constants.PREFERENCES_NAME_KEY, null);
+//        System.out.println(mRecentName);
+        Log.d("Shared Pref Name", mRecentName);
+        getSupportActionBar().setTitle("Welcome, " + mRecentName + "!");
     }
 
     @Override
