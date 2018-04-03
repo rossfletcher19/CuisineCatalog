@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.MenuInflater;
 import android.view.View;
@@ -22,6 +23,7 @@ import android.widget.TextView;
 import com.epicodus.recipesandroid.Constants;
 import com.epicodus.recipesandroid.R;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -30,15 +32,27 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @BindView(R.id.mainHeadingTextView) TextView mMainHeadingTextView;
     @BindView(R.id.seeCatalogButton) Button mSeeCatalogButton;
     @BindView(R.id.apiSearchPageButton) Button bApiSearchPageButton;
-    private SharedPreferences mSharedPreferences;
-    private String mRecentName;
 
+    private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener mAuthListener;
 
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+
+        mAuth = FirebaseAuth.getInstance();
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user != null) {
+                    getSupportActionBar().setTitle("Welcome, " + user.getDisplayName() + "!");
+                } else {
+
+                }
+            }
+        };
 
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -76,11 +90,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        mRecentName = mSharedPreferences.getString(Constants.PREFERENCES_NAME_KEY, null);
-//        System.out.println(mRecentName);
-        Log.d("Shared Pref Name", mRecentName);
-        getSupportActionBar().setTitle("Welcome, " + mRecentName + "!");
+
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        mAuth.addAuthStateListener(mAuthListener);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (mAuthListener != null) {
+            mAuth.removeAuthStateListener(mAuthListener);
+        }
     }
 
     @Override
