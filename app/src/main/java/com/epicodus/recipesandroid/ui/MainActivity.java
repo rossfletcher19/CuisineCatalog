@@ -1,5 +1,6 @@
 package com.epicodus.recipesandroid.ui;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
@@ -36,31 +37,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
 
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        mAuth = FirebaseAuth.getInstance();
-        mAuthListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-                if (user != null) {
-                    getSupportActionBar().setTitle("Welcome, " + user.getDisplayName() + "!");
-                } else {
+        mMainHeadingTextView = (TextView) findViewById(R.id.mainHeadingTextView);
+        Typeface headingFont = Typeface.createFromAsset(getAssets(), "fonts/Windsong.ttf");
+        mMainHeadingTextView.setTypeface(headingFont);
 
-                }
-            }
-        };
+        mAuth = FirebaseAuth.getInstance();
 
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        mMainHeadingTextView = (TextView) findViewById(R.id.mainHeadingTextView);
-        Typeface headingFont = Typeface.createFromAsset(getAssets(), "fonts/Windsong.ttf");
-        mMainHeadingTextView.setTypeface(headingFont);
 
         mSeeCatalogButton = (Button) findViewById(R.id.seeCatalogButton);
         mSeeCatalogButton.setOnClickListener(new View.OnClickListener() {
@@ -90,6 +81,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
+
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user != null) {
+                    getSupportActionBar().setTitle("Welcome, " + user.getDisplayName() + "!");
+                } else {
+
+                }
+            }
+        };
+
 
     }
 
@@ -106,6 +110,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             mAuth.removeAuthStateListener(mAuthListener);
         }
     }
+
+
 
     @Override
     public void onBackPressed() {
@@ -137,7 +143,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             logout();
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 
