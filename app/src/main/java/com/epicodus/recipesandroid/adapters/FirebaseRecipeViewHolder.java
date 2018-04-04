@@ -12,6 +12,8 @@ import com.epicodus.recipesandroid.Constants;
 import com.epicodus.recipesandroid.R;
 import com.epicodus.recipesandroid.models.Recipe;
 import com.epicodus.recipesandroid.ui.RecipeDetailActivity;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -54,8 +56,10 @@ public class FirebaseRecipeViewHolder extends RecyclerView.ViewHolder implements
 
     @Override
     public void onClick(View view) {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String uid = user.getUid();
         final ArrayList<Recipe> recipes = new ArrayList<>();
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_RECIPES);
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_RECIPES).child(uid);
         ref.addListenerForSingleValueEvent(new ValueEventListener() {
 
             @Override
@@ -67,7 +71,7 @@ public class FirebaseRecipeViewHolder extends RecyclerView.ViewHolder implements
                 int itemPosition = getLayoutPosition();
 
                 Intent intent = new Intent(mContext, RecipeDetailActivity.class);
-                intent.putExtra("position", itemPosition + "");
+                intent.putExtra("position", itemPosition);
                 intent.putExtra("recipes", Parcels.wrap(recipes));
 
                 mContext.startActivity(intent);
