@@ -122,7 +122,4 @@ public class FirebaseRecipeListAdapter extends FirebaseRecyclerAdapter<Recipe, F
                  .inflate(R.layout.recipe_list_item_drag, parent, false);
                 return new FirebaseRecipeViewHolder(view);
     }
-
-
-
 }
