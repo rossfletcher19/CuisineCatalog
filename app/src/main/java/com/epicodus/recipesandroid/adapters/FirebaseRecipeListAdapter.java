@@ -66,6 +66,15 @@ public class FirebaseRecipeListAdapter extends FirebaseRecyclerAdapter<Recipe, F
         });
     }
 
+    public void setIndexInFirebase() {
+        for (Recipe recipe : mRecipes) {
+            int index = mRecipes.indexOf(recipe);
+            DatabaseReference ref = getRef(index);
+            recipe.setIndex(Integer.toString(index));
+            ref.setValue(recipe);
+        }
+    }
+
 
     @Override
     public boolean onItemMove(int fromPosition, int toPosition) {
@@ -84,6 +93,17 @@ public class FirebaseRecipeListAdapter extends FirebaseRecyclerAdapter<Recipe, F
     @Override
     protected void onBindViewHolder(final FirebaseRecipeViewHolder holder, int position, Recipe model) {
         holder.bindRecipe(model);
+
+        holder.mRecipeImageView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (MotionEventCompat.getActionMasked(event) == MotionEvent.ACTION_DOWN) {
+                    mOnStartDragListener.onStartDrag(holder);
+                }
+                return false;
+            }
+        });
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -103,13 +123,6 @@ public class FirebaseRecipeListAdapter extends FirebaseRecyclerAdapter<Recipe, F
                 return new FirebaseRecipeViewHolder(view);
     }
 
-    public void setIndexInFirebase() {
-        for (Recipe recipe : mRecipes) {
-            int index = mRecipes.indexOf(recipe);
-            DatabaseReference ref = getRef(index);
-            recipe.setIndex(Integer.toString(index));
-            ref.setValue(recipe);
-        }
-    }
+
 
 }

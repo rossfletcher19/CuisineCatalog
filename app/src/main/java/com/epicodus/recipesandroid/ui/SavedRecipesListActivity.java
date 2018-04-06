@@ -73,7 +73,6 @@ public class SavedRecipesListActivity extends AppCompatActivity implements OnSta
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        mFirebaseAdapter.setIndexInFirebase();
         mFirebaseAdapter.stopListening();
     }
 
