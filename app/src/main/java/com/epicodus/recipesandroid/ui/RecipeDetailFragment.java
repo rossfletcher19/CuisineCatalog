@@ -8,7 +8,9 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,17 +25,20 @@ import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class RecipeDetailFragment extends Fragment implements View.OnClickListener {
     @BindView(R.id.recipeImageView) ImageView mRecipeImageViewLabel;
-//    @BindView(R.id.recipeNameTextView) TextView mRecipeNameTextViewLabel;
     @BindView(R.id.caloriesTextView) TextView mCaloriesTextViewLabel;
     @BindView(R.id.sourceTextView) TextView mSourceTextViewLabel;
     @BindView(R.id.saveRecipeButton) TextView mSaveRecipeButtonLabel;
 
     private Recipe mRecipe;
+    private ListView lvIngredients;
 
     public RecipeDetailFragment(){}
 
@@ -47,25 +52,32 @@ public class RecipeDetailFragment extends Fragment implements View.OnClickListen
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-
-
         super.onCreate(savedInstanceState);
         mRecipe = Parcels.unwrap(getArguments().getParcelable("recipe"));
-    }
 
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_recipe_detail, container, false);
         ButterKnife.bind(this, view);
         mSourceTextViewLabel.setOnClickListener(this);
+        mSaveRecipeButtonLabel.setOnClickListener(this);
+
+
+
 
         Picasso.with(view.getContext())
                 .load(mRecipe.getImage())
                 .into(mRecipeImageViewLabel);
         mCaloriesTextViewLabel.setText(mRecipe.getCalories());
 
-        mSaveRecipeButtonLabel.setOnClickListener(this);
+        lvIngredients = view.findViewById(R.id.lvIngredients);
+        List<String> ingredients = new ArrayList<>();
+        ingredients.addAll(mRecipe.getIngredientLines());
+
+        lvIngredients.setAdapter(new ArrayAdapter<String>(view.getContext(),
+                android.R.layout.simple_list_item_1, ingredients));
 
         return view;
     }

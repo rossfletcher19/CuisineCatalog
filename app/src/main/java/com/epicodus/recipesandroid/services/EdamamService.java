@@ -1,5 +1,7 @@
 package com.epicodus.recipesandroid.services;
 
+import android.util.Log;
+
 import com.epicodus.recipesandroid.models.Recipe;
 import com.epicodus.recipesandroid.Constants;
 
@@ -68,7 +70,7 @@ public class EdamamService {
                     for(int j = 0; j< ingredientList.length(); j++){
                         ingredients.add(ingredientList.get(j).toString());
                     }
-
+                    System.out.println(ingredients + "ingredients");
                     Recipe recipe = new Recipe(title,image,url,ingredients,calories,servings);
                     allRecipes.add(recipe);
                 }

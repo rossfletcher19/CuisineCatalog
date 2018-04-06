@@ -17,7 +17,6 @@ import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
