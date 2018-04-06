@@ -14,6 +14,8 @@
 | A user can see input/reviews of a recipe  | User clicks on a recipe  | User sees recipe, along with comments and reviews on the recipe  |
 | A user can login or create an account with account info through Firebase.  | User opens app  | User arrives at login feature to register a user name and pw or login with previously created user name and pw |
 | A admin can login and add, edit or delete a recipe  |  Admin visits admin area and logs in | Admin sees list of all recipes and posts and has ability to edit or delete recipes/posts  |
+| A user can reorder their favs/saved list |   |   |
+| A user can remove a recipe from their favs/saved list with swipe gesture |   |   |
 | A user  |   |   |
 
 ## Setup/Installation Requirements
