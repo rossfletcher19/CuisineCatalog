@@ -20,6 +20,8 @@ public class Recipe {
     private String servings;
     private String cuisine;
     private String pushId;
+    private String index;
+
 
     public Recipe(){}
 
@@ -30,8 +32,18 @@ public class Recipe {
         this.ingredientLines = ingredientLines;
         this.calories = calories;
         this.servings = servings;
+        this.index = "not_specified";
 
 
+    }
+
+
+    public String getIndex() {
+        return index;
+    }
+
+    public void setIndex(String index) {
+        this.index = index;
     }
 
     public String getTitle() {
