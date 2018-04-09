@@ -112,7 +112,6 @@ public class Recipe {
 
     public static List<Recipe> createRecipeList() {
 
-
         List<Recipe> recipes = new ArrayList<>();
 
 //                Recipe recipe1x = new Recipe("title", "img", "url", new ArrayList<>(Arrays.asList("","","","","","","","","","",""} , "cal", "servings", "course", "cuisine", "description");

@@ -30,66 +30,11 @@ import com.google.firebase.database.Query;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class SavedRecipesListActivity extends AppCompatActivity implements OnStartDragListener {
-    private DatabaseReference mRecipeReference;
-//    private FirebaseRecyclerAdapter mFirebaseAdapter;
-    private FirebaseRecipeListAdapter mFirebaseAdapter;
-    private ItemTouchHelper mItemTouchHelper;
-    private Query recipeQuery;
-    @BindView(R.id.rvRecipesList) RecyclerView rvRecipesListView;
+public class SavedRecipesListActivity extends AppCompatActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_recipes_list);
-        ButterKnife.bind(this);
-        setUpFirebaseAdapter();
-
-    }
-
-    private void setUpFirebaseAdapter() {
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        String uid = user.getUid();
-
-        mRecipeReference = FirebaseDatabase
-                .getInstance()
-                .getReference(Constants.FIREBASE_CHILD_RECIPES)
-                .child(uid);
-        recipeQuery = mRecipeReference.getRef();
-
-        FirebaseRecyclerOptions<Recipe> options = new FirebaseRecyclerOptions.Builder<Recipe>().setQuery(recipeQuery, Recipe.class).build();
-
-        mFirebaseAdapter = new FirebaseRecipeListAdapter(options, mRecipeReference, this,this);
-
-        rvRecipesListView.setHasFixedSize(true);
-        rvRecipesListView.setLayoutManager(new LinearLayoutManager(this));
-        rvRecipesListView.setAdapter(mFirebaseAdapter);
-
-        ItemTouchHelper.Callback callback = new SimpleItemTouchHelperCallback((ItemTouchHelperAdapter) mFirebaseAdapter);
-        mItemTouchHelper = new ItemTouchHelper(callback);
-        mItemTouchHelper.attachToRecyclerView(rvRecipesListView);
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        mFirebaseAdapter.stopListening();
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        mFirebaseAdapter.startListening();
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        mFirebaseAdapter.stopListening();
-    }
-
-    @Override
-    public void onStartDrag(RecyclerView.ViewHolder viewHolder) {
-        mItemTouchHelper.startDrag(viewHolder);
+        setContentView(R.layout.activity_saved_recipe_list);
     }
 }

@@ -2,6 +2,7 @@ package com.epicodus.recipesandroid.ui;
 
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -36,16 +37,21 @@ public class RecipeDetailFragment extends Fragment implements View.OnClickListen
     @BindView(R.id.caloriesTextView) TextView mCaloriesTextViewLabel;
     @BindView(R.id.sourceTextView) TextView mSourceTextViewLabel;
     @BindView(R.id.saveRecipeButton) TextView mSaveRecipeButtonLabel;
+    @BindView(R.id.recipeNameTextView) TextView mRecipeNameTextView;
 
     private Recipe mRecipe;
     private ListView lvIngredients;
+    private List<Recipe> mRecipes;
+    private int mPosition;
 
     public RecipeDetailFragment(){}
 
-    public static RecipeDetailFragment newInstance(Recipe recipe) {
+    public static RecipeDetailFragment newInstance(List<Recipe> recipes, Integer position) {
         RecipeDetailFragment recipeDetailFragment = new RecipeDetailFragment();
         Bundle args = new Bundle();
-        args.putParcelable("recipe", Parcels.wrap(recipe));
+        args.putParcelable(Constants.EXTRA_KEY_RECIPES, Parcels.wrap(recipes));
+        args.putInt(Constants.EXTRA_KEY_POSITION, position);
+
         recipeDetailFragment.setArguments(args);
         return recipeDetailFragment;
     }
@@ -53,7 +59,9 @@ public class RecipeDetailFragment extends Fragment implements View.OnClickListen
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mRecipe = Parcels.unwrap(getArguments().getParcelable("recipe"));
+        mRecipes = Parcels.unwrap(getArguments().getParcelable(Constants.EXTRA_KEY_RECIPES));
+        mPosition = getArguments().getInt(Constants.EXTRA_KEY_POSITION);
+        mRecipe = mRecipes.get(mPosition);
 
     }
 
@@ -70,6 +78,7 @@ public class RecipeDetailFragment extends Fragment implements View.OnClickListen
         Picasso.with(view.getContext())
                 .load(mRecipe.getImage())
                 .into(mRecipeImageViewLabel);
+        mRecipeNameTextView.setText(mRecipe.getTitle());
         mCaloriesTextViewLabel.setText(mRecipe.getCalories());
 
         lvIngredients = view.findViewById(R.id.lvIngredients);

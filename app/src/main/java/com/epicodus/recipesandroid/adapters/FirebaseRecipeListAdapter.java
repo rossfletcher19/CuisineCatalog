@@ -2,14 +2,20 @@ package com.epicodus.recipesandroid.adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.MotionEventCompat;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.epicodus.recipesandroid.Constants;
 import com.epicodus.recipesandroid.R;
 import com.epicodus.recipesandroid.models.Recipe;
 import com.epicodus.recipesandroid.ui.RecipeDetailActivity;
+import com.epicodus.recipesandroid.ui.RecipeDetailFragment;
 import com.epicodus.recipesandroid.util.ItemTouchHelperAdapter;
 import com.epicodus.recipesandroid.util.OnStartDragListener;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -31,6 +37,7 @@ public class FirebaseRecipeListAdapter extends FirebaseRecyclerAdapter<Recipe, F
     private ChildEventListener mChildEventListener;
     private ArrayList<Recipe> mRecipes = new ArrayList<>();
     private OnStartDragListener mOnStartDragListener;
+    private int mOrientation;
 
     public FirebaseRecipeListAdapter(FirebaseRecyclerOptions<Recipe> options, Query ref, OnStartDragListener onStartDragListener, Context context) {
         super(options);
@@ -94,6 +101,11 @@ public class FirebaseRecipeListAdapter extends FirebaseRecyclerAdapter<Recipe, F
     protected void onBindViewHolder(final FirebaseRecipeViewHolder holder, int position, Recipe model) {
         holder.bindRecipe(model);
 
+        mOrientation = holder.itemView.getResources().getConfiguration().orientation;
+        if (mOrientation == Configuration.ORIENTATION_LANDSCAPE) {
+            createDetailFragment(0);
+        }
+
         holder.mRecipeImageView.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -108,10 +120,15 @@ public class FirebaseRecipeListAdapter extends FirebaseRecyclerAdapter<Recipe, F
 
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(mContext, RecipeDetailActivity.class);
-                intent.putExtra("position", holder.getAdapterPosition());
-                intent.putExtra("recipes", Parcels.wrap(mRecipes));
-                mContext.startActivity(intent);
+                int itemPosition = holder.getAdapterPosition();
+                if(mOrientation == Configuration.ORIENTATION_LANDSCAPE) {
+                    createDetailFragment(itemPosition);
+                } else {
+                    Intent intent = new Intent(mContext, RecipeDetailActivity.class);
+                    intent.putExtra(Constants.EXTRA_KEY_POSITION, holder.getAdapterPosition());
+                    intent.putExtra(Constants.EXTRA_KEY_RECIPES, Parcels.wrap(mRecipes));
+                    mContext.startActivity(intent);
+                }
             }
         });
     }
@@ -121,5 +138,12 @@ public class FirebaseRecipeListAdapter extends FirebaseRecyclerAdapter<Recipe, F
         View view = LayoutInflater.from(parent.getContext())
                  .inflate(R.layout.recipe_list_item_drag, parent, false);
                 return new FirebaseRecipeViewHolder(view);
+    }
+
+    private void createDetailFragment(int position) {
+        RecipeDetailFragment detailFragment = RecipeDetailFragment.newInstance(mRecipes, position);
+        FragmentTransaction ft = ((FragmentActivity) mContext).getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.recipeDetailContainer, detailFragment);
+        ft.commit();
     }
 }
