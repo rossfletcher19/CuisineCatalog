@@ -22,7 +22,7 @@
 
 * _Clone or fork project_
 #### Firebase Setup
-* _If you dont have a firebase account create one [@Firebase](https://firebase.google.com/), create a new project, assigning it the SHA-1 key found in the signing report pictured [here](https://i.imgur.com/XZpxqzf.gif)_
+* _If you dont have a firebase account create one [@Firebase](https://firebase.google.com/), create a new project, assigning it the SHA-1 key found in the signing report pictured ![sha-1]()_
 * _Place the google-services.json in the app module root directory._
 * _Re-sync project with gradle and move onto API setup._
 #### API Setup
