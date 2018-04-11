@@ -22,7 +22,7 @@
 
 * _Clone or fork project_
 #### Firebase Setup
-* _If you dont have a firebase account create one [@Firebase](https://firebase.google.com/), create a new project, assigning it the SHA-1 key found in the signing report pictured here: [here](https://github.com/rossfletcher19/CuisineCatalog/blob/master/app/src/main/res/drawable/sha-1loc.gif)_
+* _If you dont have a firebase account create one [@Firebase](https://firebase.google.com/), create a new project, assigning it the SHA-1 key found in the signing report pictured [here](https://github.com/rossfletcher19/CuisineCatalog/blob/master/app/src/main/res/drawable/sha-1loc.gif)_
 * _Place the google-services.json in the app module root directory._
 * _Re-sync project with gradle and move onto API setup._
 #### API Setup
