@@ -4,7 +4,9 @@
 
 #### By _**Ross Fletcher**_
 
-![ss1](https://github.com/rossfletcher19/CuisineCatalog/blob/master/app/src/main/res/drawable/ssHome.png)
+<img src="C:\Users\rtbfl\AndroidStudioProjects\CuisineCatalog\app\src\main\res\drawable\ssHome.png" alt="drawing" width="100px" height="200"/>
+
+
 ![ss4](https://github.com/rossfletcher19/CuisineCatalog/blob/master/app/src/main/res/drawable/ssCuisines.png)
 
 ![ss6](https://github.com/rossfletcher19/CuisineCatalog/blob/master/app/src/main/res/drawable/ssSearch.png)
