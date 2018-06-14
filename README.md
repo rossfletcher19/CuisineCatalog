@@ -4,19 +4,6 @@
 
 #### By _**Ross Fletcher**_
 
-<img src="C:\Users\rtbfl\AndroidStudioProjects\CuisineCatalog\app\src\main\res\drawable\ssHome.png" alt="drawing" width="100px" height="200"/>
-
-
-![ss4](https://github.com/rossfletcher19/CuisineCatalog/blob/master/app/src/main/res/drawable/ssCuisines.png)
-
-![ss6](https://github.com/rossfletcher19/CuisineCatalog/blob/master/app/src/main/res/drawable/ssSearch.png)
-![ss5](https://github.com/rossfletcher19/CuisineCatalog/blob/master/app/src/main/res/drawable/ssDetails.png)
-
-
-![ss7](https://github.com/rossfletcher19/CuisineCatalog/blob/master/app/src/main/res/drawable/ssDrawer.png)
-![ss2](https://github.com/rossfletcher19/CuisineCatalog/blob/master/app/src/main/res/drawable/ssLogin.png)
-![ss3](https://github.com/rossfletcher19/CuisineCatalog/blob/master/app/src/main/res/drawable/ssCreateAccount.png)
-
 
 ## Specs
 
